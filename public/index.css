@@ -1,0 +1,1010 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
+a {
+  text-decoration: none !important;
+  color: #000;
+}
+
+/* NAVBAR STYLE */
+.navbar {
+  padding: 0 !important;
+}
+.offcanvas-body {
+  padding-bottom: 10px;
+}
+.nav-form {
+  padding-top: 9px;
+  height: 45px;
+}
+
+.nav-list {
+  padding-top: 9px;
+}
+.contact-list[data-bs-popper] {
+  left: -100px !important;
+}
+
+.bi {
+  margin: 0 0.5rem 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.video-dv {
+  position: relative;
+}
+.explore-btn {
+  position: absolute;
+  border: 1px solid #fff;
+  bottom: 15%;
+  height: 20%;
+  width: 30%;
+  left: 35%;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgb(255, 255, 255, 0.3);
+  backdrop-filter: saturate(180%) blur(6px);
+}
+.explore-btn:hover {
+  background-color: rgb(255, 255, 255, 0);
+}
+
+.big-headings {
+  margin: 3rem 0 0.1rem;
+  text-align: center;
+}
+.big-headings,
+.sect5-h {
+  color: #333357;
+  font-family: "Anton", sans-serif;
+}
+
+.best-art img {
+  height: 300px;
+}
+
+.shop-now-link {
+  margin: 0 0 3% 4%;
+}
+
+.bag-wish-div {
+  display: inline;
+  float: right;
+  padding: 0;
+}
+
+.bag-wish-div .bi {
+  font-size: 1.1rem;
+  color: #0ca51e;
+}
+
+/* STYLE FOR THE COROUSEL CONTROL BUTTON */
+.ctrl-btn {
+  border-radius: 100%;
+  background-color: white !important;
+  height: 50px !important;
+  width: 50px !important;
+  top: 250px !important;
+}
+
+.carousel-control-prev {
+  left: 1% !important;
+}
+
+.carousel-control-next {
+  right: 1% !important;
+}
+
+@media only screen and (min-width: 557px) {
+  .cards-wrapper {
+    display: flex;
+  }
+
+  .card {
+    margin: 0.5em;
+    width: calc(100% / 4);
+    height: auto;
+  }
+
+  .card-img-top {
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 557px) {
+  .card:not(:first-child) {
+    display: none;
+  }
+  .card-img-top {
+    height: 300px;
+  }
+}
+
+/* SECOND SECTION COROUSEL */
+.row {
+  margin: 0 !important;
+}
+.sect2-dv {
+  padding: 0.5%;
+}
+
+.recent-cont,
+.enquire-cont {
+  height: 600px;
+  margin: 1% 0;
+  position: relative;
+}
+
+.enquire-cont {
+  margin-top: 3%;
+}
+.recent-img,
+.enquire-img {
+  height: 560px;
+  width: 100%;
+}
+.promise-h {
+  font-family: "Abril Fatface", cursive;
+  color: #333357;
+  margin: 3rem 0 1rem;
+}
+.curated-h {
+  /* position: absolute; */
+  display: inline-block;
+  font-family: "Abril Fatface", cursive;
+  color: #333357;
+  padding-left: 2%;
+  width: 17%;
+}
+
+.recent-div {
+  position: absolute;
+  bottom: 0%;
+  z-index: 1;
+  background-color: rgb(255, 255, 255, 0.7);
+  backdrop-filter: saturate(180%) blur(20px);
+  padding-left: 2%;
+  color: #000;
+  width: 100%;
+  height: 120px;
+  cursor: pointer;
+}
+.crsel-capt {
+  position: absolute !important;
+  top: 0% !important;
+  z-index: 10;
+}
+.recent-div a {
+  color: #000 !important;
+}
+.recent-div a:hover {
+  text-decoration: underline !important;
+}
+
+.customize-dv {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: #000;
+  bottom: 0%;
+  height: 150px;
+  background-color: rgb(255, 255, 255, 0.7);
+  backdrop-filter: saturate(180%) blur(20px);
+  padding: 1% 9% 1% 9%;
+  font-size: larger;
+}
+
+@media only screen and (max-width: 576px) {
+  .recent-img,
+  .enquire-img {
+    height: 300px !important;
+  }
+
+  .recent-cont,
+  .enquire-cont {
+    height: 400px !important;
+  }
+}
+
+.artist-dv {
+  height: auto;
+  margin-top: 6%;
+}
+
+.artist-word {
+  border: solid #cecfd0;
+  border-width: 1px 0 1px 0;
+  height: auto;
+  width: 70%;
+  margin: 2% auto 0% auto;
+  padding: 5% 4% 4% 2%;
+}
+
+.sect4-h {
+  font-family: "Abril Fatface", cursive;
+  color: #333357;
+}
+
+.sect5-dv {
+  width: 100%;
+  margin-bottom: 6%;
+  text-align: center;
+  height: auto;
+}
+
+.sect5-h {
+  margin: 4% 0 2% 0;
+  padding-top: 2%;
+}
+
+.sect5-col {
+  position: relative;
+  margin: 2% 0 2% 0;
+  cursor: pointer;
+}
+
+.cat-tag-dv {
+  position: absolute;
+  bottom: 0%;
+  width: 94%;
+  height: 40px;
+  background-color: rgb(0, 0, 0, 0.5);
+  color: #fff;
+  padding-top: 1%;
+}
+
+.cat-img {
+  transition: transform 3s;
+}
+.cat-img:hover {
+  transform: scale(0.7);
+}
+
+.sect6-dv {
+  position: relative;
+  text-align: center;
+  background-color: #f1f1f1;
+  padding: 2.5%;
+  height: auto;
+  font-size: 105%;
+}
+
+.sect6-dv p {
+  text-align: left;
+}
+.sect6-dv input {
+  width: 100%;
+  margin-left: 3px;
+}
+
+.sect6-dv button {
+  width: 100%;
+  margin: 9px 0;
+  height: 33px;
+}
+
+@media only screen and (min-width: 576px) {
+  .para-dv,
+  .email-dv {
+    position: relative;
+    display: inline-block;
+    margin: 9px;
+  }
+  .para-dv {
+    width: 45%;
+  }
+  .email-dv {
+    width: 30%;
+  }
+  .sect6-dv input {
+    width: 60%;
+  }
+  .sect6-dv button {
+    width: 30%;
+    margin-left: 0.5rem;
+    padding: 2px;
+  }
+}
+
+/* FOOTER SECTION STYLING */
+footer {
+  bottom: 0;
+  width: 100%;
+  padding: 1%;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+footer a {
+  color: rgb(152, 148, 148);
+}
+
+.social-medias-l {
+  text-align: left;
+  display: none;
+}
+
+.copyright-p {
+  text-align: center;
+  color: #ccc;
+}
+
+@media only screen and (min-width: 700px) {
+  .social-medias-l {
+    display: block;
+  }
+
+  .social-medias-s {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .explore-btn {
+    width: 16%;
+    height: 12%;
+    left: 43%;
+  }
+}
+
+/* STYLE FOR THE PRODUCTS LIST PAGE */
+.prod-container {
+  flex: none !important;
+}
+.prod-container .card {
+  width: 95%;
+  margin: 3%;
+}
+
+.filter-dv {
+  position: relative;
+  top: 30px;
+  padding: 1%;
+  height: 100px;
+  margin: 2% 8%;
+}
+
+.filter-dv form,
+.filter-dv h6,
+.filter-dv select,
+.select-container {
+  display: inline-block;
+}
+
+.filter-dv form {
+  width: 90%;
+}
+
+.filter-dv select {
+  width: 100%;
+  border-radius: 0;
+}
+
+.select-container {
+  position: relative;
+  width: 121px;
+  margin: 0 1%;
+}
+.filter-arrow {
+  position: absolute;
+  font-size: medium;
+  right: 0px;
+  top: 6px;
+}
+
+.container {
+  margin: 5% 0;
+}
+@media only screen and (max-width: 700px) {
+  .filter-dv {
+    padding: 0;
+  }
+  .filter-dv h6 {
+    display: block;
+  }
+  .filter-dv form {
+    width: 100%;
+  }
+  .select-container {
+    position: relative;
+    width: 33%;
+    margin: 0 0.1%;
+  }
+  .container {
+    margin-top: 4rem;
+  }
+}
+
+/* STYLE FOR THE VIEW PRODUCT IN DETAILS PAGE */
+.view-prod-dv {
+  position: relative;
+  top: 4rem;
+  height: auto;
+  width: 100%;
+  /* background-color: #333357; */
+  padding: 2% 9%;
+}
+
+.view-prod-dv .right-dv {
+  border: 1px solid #ccc;
+  padding: 3%;
+}
+.right-dv button {
+  width: 200px;
+  display: block;
+  margin: 2% 0;
+}
+.view-prod-dv .left-dv {
+  /* background-color: antiquewhite; */
+  border: 1px solid #ccc;
+}
+
+.img-prod-dv {
+  margin: 7% auto 0;
+  background-color: #000;
+  padding: 1%;
+  width: 317px;
+  height: 417px;
+}
+
+.img-prod-dv img {
+  width: 300px;
+  height: 400px;
+}
+
+.related-dv {
+  margin-top: 1%;
+}
+
+.related-h {
+  /* position: relative; */
+  margin: 7% 8.5% 0;
+  padding-bottom: 1%;
+  border-bottom: 1px solid #ccc;
+  color: #333357;
+}
+
+@media only screen and (max-width: 700px) {
+  .view-prod-dv .left-dv {
+    padding-bottom: 7%;
+  }
+  .img-prod-dv {
+    padding: 2.2%;
+  }
+
+  .related-h {
+    position: absolute;
+    bottom: -60%;
+    width: 85%;
+  }
+
+  .related-dv {
+    margin-top: 35%;
+  }
+}
+
+/* STYLING FOR THE CART page */
+
+.cart-main-dv {
+  position: relative;
+  top: 30px;
+  margin: 2% 0;
+  padding: 2% 10%;
+  width: 100%;
+  height: auto;
+}
+
+.cart-h {
+  margin: 2% 1%;
+  text-align: center;
+}
+.cart-heading-dv {
+  margin: 1% 0 !important;
+}
+
+.cart-item-dv {
+  padding: 2% 0;
+  border-top: 1px solid #ccc;
+}
+.cart-item-dv img {
+  width: 150px;
+  height: 160px;
+}
+
+.cart-item-dv a {
+  display: inline-block;
+  margin: 0.8cm 5% 0 0;
+  color: #0ca51e;
+}
+.cart-item-dv a:hover {
+  text-decoration: underline !important;
+  color: #000;
+}
+
+.cart-item-dv input {
+  width: 40%;
+}
+
+.order-price-dv {
+  position: relative;
+  left: 50%;
+  background-color: rgb(228, 246, 246);
+  box-shadow: 1px 1px 4px #000;
+  width: 30%;
+  margin: 2% 10%;
+  padding: 1%;
+  border-radius: 6px;
+  font-weight: bold;
+}
+.order-price-dv label {
+  float: right;
+}
+.order-price-dv button {
+  margin: 1% 5%;
+}
+
+@media only screen and (max-width: 900px) {
+  .cart-main-dv {
+    padding: 1px;
+  }
+
+  .cart-item-dv img {
+    width: 70px;
+    height: 70px;
+  }
+  .cart-item-dv i {
+    display: none;
+  }
+  .cart-item-dv input {
+    width: 60%;
+  }
+  .order-price-dv {
+    width: 88%;
+    left: 0;
+    margin: 6% 6%;
+  }
+}
+
+/* STYLING FOR THE WISHLIST PAGE */
+.wish-h {
+  position: relative;
+  top: 70px;
+  text-align: center;
+}
+
+/* STYLING FOR THE CHECKOUT PAGE */
+.checkout-dv {
+  /* background-color: #333357; */
+  padding: 1%;
+  margin: 4rem 0;
+  width: 100%;
+  height: auto;
+}
+
+.checkout-row {
+  /* background-color: #000; */
+  padding: 1% 9%;
+}
+.checkout-left-dv {
+  background-color: #fff;
+  padding: 2%;
+}
+
+.checkout-right-dv {
+  background-color: #f9f9f9;
+  height: 350px;
+  margin-top: 6% !important;
+}
+
+.checkout-left-dv h5 {
+  margin-top: 3%;
+}
+
+.checkout-left-dv .bi {
+  font-size: x-large;
+  color: #0ca51e;
+}
+
+.checkout-left-dv label,
+.checkout-left-dv .bi,
+.select-pay-dv,
+.add-address-dv,
+.select-pay-dv input[type="radio"] {
+  cursor: pointer;
+}
+.checkout-left-dv img {
+  width: 20%;
+  height: 30px;
+  float: right;
+}
+.select-pay-dv,
+.add-address-dv {
+  border: 1px solid #ccc;
+  padding: 6px;
+  margin: 6px 2px;
+  margin-bottom: 12px;
+}
+
+.select-pay-dv input[type="radio"] {
+  margin: 1% 2%;
+  -ms-transform: scale(1.6); /* IE 9 */
+  -webkit-transform: scale(1.6); /* Chrome, Safari, Opera */
+  transform: scale(1.6);
+}
+
+/* Styling for the order summary section */
+
+.order-summary-dv {
+  margin-top: 2%;
+  padding-top: 1%;
+}
+
+.order-summary-dv h5 {
+  text-align: center;
+  color: rgb(147, 145, 145);
+}
+.order-summary-dv label {
+  float: right;
+}
+
+#payment-btn {
+  margin-left: 21%;
+  width: 60%;
+}
+
+.order-total-p {
+  font-weight: bold;
+}
+
+/* Styling the form to display and disappear */
+#address-form {
+  display: none;
+}
+
+#maximize-dv {
+  display: block;
+}
+#minimize-dv {
+  display: none;
+  top: 168px;
+}
+
+#credit-card-form {
+  display: none;
+}
+
+/* STYLING FOR THE SIGN UP PAGE */
+.signup-top-dv {
+  text-align: center;
+}
+.signup-top-dv img {
+  height: 100px;
+}
+.signup-top-dv a {
+  text-decoration: underline !important;
+}
+.signup-row {
+  padding: 1%;
+  margin: 2% 20% !important;
+}
+
+.signup-left-col {
+  padding-right: 7% !important;
+}
+.signup-right-col {
+  position: relative;
+  border-left: 1px solid #ccc;
+  padding-top: 14%;
+}
+.signup-alt-btn {
+  display: block !important;
+  border-radius: 50px !important;
+  width: 250px;
+  height: 45px;
+  margin: 2% auto;
+}
+.or-dv {
+  position: absolute;
+  top: 45%;
+  left: -10px;
+  width: 20px;
+  height: 27px;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .signup-right-col {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 9% !important;
+    padding-top: 6% !important;
+  }
+
+  .or-dv {
+    top: -13%;
+    left: 47%;
+  }
+  .signup-right-col {
+    margin-left: 0px !important;
+  }
+}
+
+/* STYLING FOR THE SIGNIN PAGE */
+.signin-row {
+  text-align: center;
+  padding: 0 15%;
+}
+.signin-top-col,
+.signin-bottom-col {
+  padding: 1%;
+  margin: 0 auto;
+}
+
+.signin-bottom-col {
+  border-top: 1px solid #ccc;
+  padding-top: 6% !important;
+  margin-top: 9% !important;
+  position: relative;
+}
+
+.signin-or-dv {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  width: 20px;
+  height: 27px;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 50%;
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1200px) {
+  .signin-row {
+    padding: 0 25%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .signin-row {
+    padding: 0 37%;
+  }
+}
+
+/* STYLING FOR THE ACCOUNT PAGE */
+.account-dv {
+  margin: 5% 0;
+  padding: 1% 16%;
+}
+
+.account-dv h3 {
+  padding-left: 13px;
+}
+.account-dv .row {
+  padding: 3px;
+}
+
+.account-dv .col {
+  padding: 1px;
+}
+
+.acc-parts-dv {
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin: 9px;
+  height: 100px;
+  padding: 2%;
+}
+
+.acc-parts-dv:hover {
+  cursor: pointer;
+  background-color: rgb(0, 0, 0, 0.03);
+}
+
+.acc-img-dv {
+  position: absolute;
+  bottom: 25%;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  padding: 6px 0 0 6px;
+  border-radius: 50%;
+}
+
+.details-dv {
+  float: right;
+  display: inline-block;
+  margin: 0.2% 0 0 10px;
+  width: 75%;
+}
+
+.details-dv p {
+  font-weight: bold;
+  margin: 0;
+}
+.details-dv small {
+  color: #6a6a6a;
+}
+
+/* Pop-up div for user to edit different credentials */
+#shadow-dv,
+#order-shadow-dv,
+#card-shadow-dv,
+#address-shadow-dv,
+#settings-shadow-dv,
+#chat-shadow-dv {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background-color: rgb(0, 0, 0, 0.6);
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.user-info {
+  position: absolute;
+  left: 30%;
+  top: 100px;
+  width: 40%;
+  height: 80%;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  z-index: 1;
+  overflow-y: scroll;
+}
+
+.cancel-save-dv {
+  position: fixed;
+  bottom: 10px;
+  text-align: right;
+  padding: 3px;
+  width: 40%;
+  border-top: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+@media only screen and (max-width: 770px) {
+  .user-info {
+    width: 80%;
+    left: 10%;
+  }
+  .cancel-save-dv {
+    width: 80%;
+  }
+}
+
+.cancel-save-dv div {
+  border: 0.5px solid #ccc;
+}
+.cancel-save-dv button,
+.cancel-save-dv div {
+  width: 100px;
+  margin: 0 3px;
+}
+
+/* styling a form for user to edit personal information */
+.user-info form {
+  width: 100%;
+  height: 400px;
+  margin-top: 15%;
+}
+
+.user-info label {
+  display: block;
+  font-weight: bold;
+  margin-left: 9%;
+}
+
+.user-info input,
+.user-info select {
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  margin: 0 0 4% 9%;
+  width: 80%;
+  background-color: transparent;
+}
+
+.user-info select {
+  display: inline-block;
+}
+.user-info input:focus,
+.user-info select:focus {
+  outline: none;
+}
+.user-info .bi {
+  font-size: medium;
+}
+
+/* styling for the settings pop up page */
+.account-img-dv {
+  position: relative;
+  border: 6px solid #6a6a6a;
+  width: 114px;
+  height: 114px;
+  padding: 0.5px 0 0 1px;
+  border-radius: 50%;
+  margin: 3rem auto;
+}
+.account-img-dv img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+#change-img {
+  position: absolute;
+  right: -20%;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.delete-acount-btn {
+  margin-left: 9%;
+}
+
+/* styling for the chat shadow box */
+.chat-container {
+  width: 100%;
+  height: 750px;
+  background-image: url('./image/chat.PNG');
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+#chat-shadow-dv form {
+  position: fixed;
+  width: 40%;
+  bottom: 55px;
+  background-color: #fff;
+  margin: 0;
+  padding: 1px 0;
+  border-top: 1px solid #6a6a6a;
+  height: 45px;
+}
+
+#chat-shadow-dv textarea {
+  position: relative;
+  left:3%;
+  width: 76%;
+  height:40px ;
+}
+
+.bi-three-dots-vertical{
+  font-size: xx-large !important;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  left:-10px;
+  bottom: 0px;
+}
+.bi-three-dots-vertical:hover{
+  cursor: pointer;
+}
+.send-sms-btn {
+  position: absolute;
+  bottom: 1.5px;
+  right: 1px;
+  margin: 0%;
+  height: 40px;
+}
+
+
+@media only screen and (max-width: 770px) {
+  #chat-shadow-dv form {
+    width: 80%;
+  }
+
+  #chat-shadow-dv textarea {
+    width: 71%;
+  }
+
+}
