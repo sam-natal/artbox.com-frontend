@@ -1,6 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import swal from "sweetalert";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  //var [counter, setCounter] = useState(localStorage.getItem("cart_count"));
+  var [counter, setCounter] = useState(JSON.parse(localStorage.getItem("cart") || "[]").length);
+
+  setInterval(GetCounter, 500);
+  function GetCounter() {
+    //setCounter(localStorage.getItem("cart_count"));
+    setCounter(JSON.parse(localStorage.getItem("cart") || "[]").length);
+  }
+
+  const logoutSubmit = (e) => {
+    e.preventDefault();
+
+    axios.post(`/api/logout`).then((res) => {
+      if (res.data.status === 200) {
+        localStorage.removeItem("auth_token");
+        localStorage.removeItem("auth_name");
+        swal("Success", res.data.message, "success");
+        navigate(location);
+      }
+    });
+  };
+
+  var authButton = "";
+  if (!localStorage.getItem("auth_name")) {
+    authButton = (
+      <>
+        <li>
+          <a class="nav-link" href="/login" style={{ fontWeight: "bold" }}>
+            Account
+          </a>
+        </li>
+      </>
+    );
+  } else {
+    authButton = (
+      <>
+        <li>
+          <a class="nav-link" href="/account" style={{ fontWeight: "bold" }}>
+            Account
+          </a>
+        </li>
+        <hr style={{ margin: "0" }} />
+        <li>
+          <a
+            onClick={logoutSubmit}
+            class="nav-link"
+            style={{ fontWeight: "bold", cursor: "pointer" }}
+          >
+            logout
+          </a>
+        </li>
+      </>
+    );
+  }
+
   return (
     <nav class="navbar navbar-expand-lg bg-light fixed-top">
       <div class="container-fluid">
@@ -41,41 +101,23 @@ function Navbar() {
           </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown nav-list">
-                <a
-                  class="nav-link dropdown-toggle active"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Themes
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item" href="/products">
-                      People
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="/products">
-                      Animals
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="/products">
-                      Nature
-                    </a>
-                  </li>
-                </ul>
-              </li>
               <li class="nav-item nav-list">
-                <a class="nav-link active" aria-current="page" href="#">
-                  Galleries
+                <a class="nav-link active" aria-current="page" href="/">
+                  Home
+                </a>
+              </li>
+
+              <li class="nav-item nav-list">
+                <a class="nav-link active" aria-current="page" href="/arts">
+                  Arts
                 </a>
               </li>
             </ul>
-            <form class="d-flex nav-form" role="search"  style={{marginRight: "1rem" }}>
+            <form
+              class="d-flex nav-form"
+              role="search"
+              style={{ marginRight: "1rem" }}
+            >
               <input
                 class="form-control me-2"
                 type="search"
@@ -133,17 +175,35 @@ function Navbar() {
                   </a>
                 </a>
               </li>
-              <li class="nav-item" style={{ margin: "0 0.1rem" }}>
-                <a class="nav-link" href="/signin">
-                  <i class="bi bi-person"></i>
+
+              <li class="nav-item dropdown nav-list">
+                <a
+                  class="nav-link dropdown-toggle "
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  style={{ padding: "0", margin: "0 0.5rem" }}
+                >
+                  {/* <i class="bi bi-telephone" style={{ margin: "0" }}></i> */}
+                  <i class="bi bi-person" style={{ margin: "0" }}></i>
+                  {localStorage.getItem("auth_name")}
                 </a>
+                <ul
+                  class="dropdown-menu contact-list"
+                  style={{ padding: "9px", width: "200px" }}
+                >
+                  {authButton}
+                </ul>
               </li>
+
               <li class="nav-item" style={{ margin: "0 0.1rem" }}>
-                <a href="/cart">
-                  <a class="nav-link">
-                    <i class="bi bi-cart4"></i>
-                  </a>
+                {/* <a href="/cart"> */}
+                <a class="nav-link" href="/cart">
+                  <i class="bi bi-cart4"></i>
                 </a>
+                {/* </a> */}
+                <div class="cart-counter">{counter}</div>
               </li>
             </ul>
           </div>
@@ -159,7 +219,7 @@ function HomeVideo() {
       <video width="100%" height="100%" autoPlay loop muted>
         <source src={require("../resources/homeVideo.mp4")} type="video/mp4" />
       </video>
-      <a href="/products">
+      <a href="/arts">
         <button class="explore-btn">Explore now</button>
       </a>
     </div>

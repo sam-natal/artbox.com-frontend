@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import {Info, Orders, PaymentCard, Address, Settings, Chat} from "../components/Customer";
 
 function Account() {
+
   return (
     <>
       <Info />
@@ -14,7 +15,7 @@ function Account() {
       <Chat />
       <Navbar />
       <div class="account-dv">
-        <h3>Your account</h3>
+        <h3>Welcome { localStorage.getItem("auth_name")} !</h3>
         <div class="row row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1 row-cols-1 account-row">
 
           <div class="col">

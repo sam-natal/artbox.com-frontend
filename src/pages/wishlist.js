@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import Card from "../components/ProductCard";
+import Card from "../components/ArtCard";
 import Footer from "../components/Footer";
 
 function Wish() {

@@ -1,9 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CartItem from "../components/CartItem";
 
 function Cart() {
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cart") || "[]")
+  );
+
+  function deleteCartItem(id) {
+    setCart(
+      cart.filter((item) => {
+        return item.artID !== id;
+      })
+    );
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  var cart_item = "";
+  cart_item = cart.map((item, index) => {
+    return (
+      <CartItem
+        key={item.artID}
+        id={item.artID}
+        img={item.img}
+        desc={item.title}
+        size={item.width + " " + item.height}
+        price={item.price}
+        deleteCartItem={deleteCartItem}
+      />
+    );
+  });
+
   return (
     <>
       <Navbar />
@@ -15,41 +43,12 @@ function Cart() {
           <div class="col col-lg-3 col-2">QUANTITY</div>
           <div class="col col-lg-1 col-1">PRICE</div>
         </div>
-        <CartItem
-          img={require("../../src/resources/art-backlit-dark-556669.jpg")}
-          desc="Matte Black - Chic metal frame, with a matte black finish, for a
-                 modern, streamlined look."
-          size="15x40"
-          price="5000"
-        />
-
-        <CartItem
-          img={require("../../src/resources/bean-black-rice-cereal-1537169.jpg")}
-          desc="Matte Black - Chic metal frame, with a matte black finish, for a
-                 modern, streamlined look."
-          size="15x40"
-          price="5000"
-        />
-
-        <CartItem
-          img={require("../../src/resources/body-clean-clear-66346.jpg")}
-          desc="Matte Black - Chic metal frame, with a matte black finish, for a
-                 modern, streamlined look."
-          size="15x40"
-          price="5000"
-        />
-        <CartItem
-          img={require("../../src/resources/active-adult-beautiful-1799244.jpg")}
-          desc="Matte Black - Chic metal frame, with a matte black finish, for a
-                 modern, streamlined look."
-          size="15x40"
-          price="5000"
-        />
+        {cart_item}
       </div>
 
       <div class="order-price-dv">
         <p>
-          Subtotal :<label>$4000</label>
+          Subtotal :<label>{0}</label>
         </p>
         <p>
           Shipping cost :<label>$100</label>

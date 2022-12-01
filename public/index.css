@@ -11,6 +11,10 @@ a {
   color: #000;
 }
 
+.error-alert {
+  color: red;
+}
+
 /* NAVBAR STYLE */
 .navbar {
   padding: 0 !important;
@@ -258,11 +262,21 @@ a {
   padding-top: 1%;
 }
 
+.cat-img-dv{
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  /* margin: 0 auto; */
+}
+
 .cat-img {
-  transition: transform 3s;
+  /* transition: transform 3s; */
+  width: 100%;
+  transition: 0.5s all ease-in-out;
 }
 .cat-img:hover {
-  transform: scale(0.7);
+  /* transform: scale(0.7); */
+  transform: scale(1.1);
 }
 
 .sect6-dv {
@@ -377,7 +391,7 @@ footer a {
 }
 
 .filter-dv form {
-  width: 90%;
+  margin: 5px;
 }
 
 .filter-dv select {
@@ -387,9 +401,14 @@ footer a {
 
 .select-container {
   position: relative;
-  width: 121px;
+  width: auto;
   margin: 0 1%;
 }
+
+.select-container:hover {
+  cursor: pointer !important;
+}
+
 .filter-arrow {
   position: absolute;
   font-size: medium;
@@ -442,6 +461,7 @@ footer a {
 .view-prod-dv .left-dv {
   /* background-color: antiquewhite; */
   border: 1px solid #ccc;
+  padding-bottom: 50px;
 }
 
 .img-prod-dv {
@@ -490,6 +510,17 @@ footer a {
 
 /* STYLING FOR THE CART page */
 
+.cart-counter{
+  position: absolute;
+  top:0;
+  right: 31px;
+  color: red;
+  width:20px;
+  height:20px;
+  border-radius: 50%;
+  text-align: center;
+  z-index: 9999;
+}
 .cart-main-dv {
   position: relative;
   top: 30px;
@@ -955,8 +986,8 @@ footer a {
 .chat-container {
   width: 100%;
   height: 750px;
-  background-image: url('./image/chat.PNG');
-  background-size:contain;
+  background-image: url("./image/chat.PNG");
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
@@ -973,20 +1004,20 @@ footer a {
 
 #chat-shadow-dv textarea {
   position: relative;
-  left:3%;
+  left: 3%;
   width: 76%;
-  height:40px ;
+  height: 40px;
 }
 
-.bi-three-dots-vertical{
+.bi-three-dots-vertical {
   font-size: xx-large !important;
   position: absolute;
   padding: 0;
   margin: 0;
-  left:-10px;
+  left: -10px;
   bottom: 0px;
 }
-.bi-three-dots-vertical:hover{
+.bi-three-dots-vertical:hover {
   cursor: pointer;
 }
 .send-sms-btn {
@@ -997,7 +1028,6 @@ footer a {
   height: 40px;
 }
 
-
 @media only screen and (max-width: 770px) {
   #chat-shadow-dv form {
     width: 80%;
@@ -1006,5 +1036,4 @@ footer a {
   #chat-shadow-dv textarea {
     width: 71%;
   }
-
 }

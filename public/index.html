@@ -19,11 +19,38 @@
       rel="stylesheet"
     />
     <title>Creative art box</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
+
   </head>
   <body>
     <div id="root"></div>
+
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0&appId=1179348319668380&autoLogAppEvents=1"
+      nonce="V5b1r57m"
+    ></script>
+
+    <!-- <script>
+      FB.login(function(response) {
+        if (response.authResponse) {
+          window.top.location = "http://localhost:3000/account";
+        }
+      });
+    </script> -->
+
     <script src="../src/index.js" type="text/babel"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" type="text/babel"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" type="text/babel"></script>
+    <script
+      src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+      type="text/babel"
+    ></script>
+    <script
+      src="../node_modules/bootstrap/dist/js/bootstrap.min.js"
+      type="text/babel"
+    ></script>
   </body>
 </html>

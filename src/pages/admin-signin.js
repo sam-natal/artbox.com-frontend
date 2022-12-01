@@ -1,6 +1,7 @@
 import React from "react";
 
 function AdminSignIn() {
+
   return (
     <>
       <div class="signup-top-dv">
@@ -17,7 +18,7 @@ function AdminSignIn() {
 
       <div class="row signin-row">
         <div class="col-lg-12 signin-top-col">
-          <form class="row g-3" action="../../admin/dashboard.html">
+          <form class="row g-3" action="http://localhost:8000/">
             <div class="col-12">
               <input
                 type="email"

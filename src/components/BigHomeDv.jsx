@@ -11,7 +11,7 @@ function BigHomeDv() {
             <div class="recent-div">
               <h4>Recent art works</h4>
               <p>Currently released products from our artist.</p>
-              <a href="/products">
+              <a href="/arts">
                 View all here &nbsp; &gt;
               </a>
             </div>

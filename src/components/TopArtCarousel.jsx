@@ -1,6 +1,42 @@
-import React from "react";
-import Card from "./ProductCard";
+import React, { useEffect, useState } from "react";
+import Card from "./ArtCard";
+import axios from "axios";
+
 function TopArtCarousel() {
+  const [loading, setLoading] = useState(true);
+  const [viewArt, setArt] = useState([]);
+
+  useEffect(() => {
+    axios.get(`/api/view-art`).then((res) => {
+      if (res.data.status === 200) {
+        setArt(res.data.arts);
+        setLoading(false);
+      }
+    });
+  }, []);
+
+  if (loading) {
+    return <p>wait things are loading.....</p>;
+  } else {
+    console.log(viewArt[0].price);
+  }
+
+  //console.log(viewArt[0].price);
+  // var show_arts = "";
+  // show_arts = viewArt.map((item) => {
+  //   return (
+  //     <div class="col col-lg-3 col-md-4 col-sm-12 col-xs-12 prod-container">
+  //       <Card
+  //         img={'http://127.0.0.1:8000/storage/'+item.image_path.slice(7)}
+  //         title={item.title}
+  //         price={'$ '+item.price}
+  //       />
+  //     </div>
+  //   );
+  // });
+
+  //console.log(viewArt[0]);
+
   return (
     <div
       id="carouselExampleControls"
@@ -14,24 +50,48 @@ function TopArtCarousel() {
         <div class="carousel-item active">
           <div class="cards-wrapper">
             <Card
-              img={require("../resources/art-artistic-artsy-1988681.jpg")}
-              title="Art title"
-              price="Price: $100 to $160"
+              artID={viewArt[0].id}
+              img={
+                "http://127.0.0.1:8000/storage/" +
+                viewArt[0].image_path.slice(7)
+              }
+              title={viewArt[0].title}
+              width={viewArt[0].width}
+              height={viewArt[0].height}
+              price={"$ " + viewArt[0].price}
             />
             <Card
-              img={require("../resources/abstract-expressionism-abstract-painting-acrylic-1919287.jpg")}
-              title="Art title"
-              price="Price: $100 to $160"
+              artID={viewArt[1].id}
+              img={
+                "http://127.0.0.1:8000/storage/" +
+                viewArt[1].image_path.slice(7)
+              }
+              title={viewArt[1].title}
+              width={viewArt[1].width}
+              height={viewArt[1].height}
+              price={"$ " + viewArt[1].price}
             />
             <Card
-              img={require("../resources/wal-3143copy2.jpg")}
-              title="Art title"
-              price="Price: $100 to $160"
+              artID={viewArt[2].id}
+              img={
+                "http://127.0.0.1:8000/storage/" +
+                viewArt[2].image_path.slice(7)
+              }
+              title={viewArt[2].title}
+              width={viewArt[2].width}
+              height={viewArt[2].height}
+              price={"$ " + viewArt[2].price}
             />
             <Card
-              img={require("../resources/alcoholic-beverage-beverage-citrus-1232152.jpg")}
-              title="Art title"
-              price="Price: $100 to $160"
+              artID={viewArt[3].id}
+              img={
+                "http://127.0.0.1:8000/storage/" +
+                viewArt[3].image_path.slice(7)
+              }
+              title={viewArt[3].title}
+              width={viewArt[3].width}
+              height={viewArt[3].height}
+              price={"$ " + viewArt[3].price}
             />
           </div>
         </div>
@@ -40,31 +100,55 @@ function TopArtCarousel() {
         <div class="carousel-item ">
           <div class="cards-wrapper">
             <Card
-              img={require("../resources/angry-animal-animal-photography-951007.jpg")}
-              title="Art title"
-              price="Price: $100 to $160"
+              artID={viewArt[4].id}
+              img={
+                "http://127.0.0.1:8000/storage/" +
+                viewArt[4].image_path.slice(7)
+              }
+              title={viewArt[4].title}
+              width={viewArt[4].width}
+              height={viewArt[4].height}
+              price={"$ " + viewArt[4].price}
             />
 
             <Card
-              img={require("../resources/art-artsy-black-background-1918290.jpg")}
-              title="Art title"
-              price="Price: $100 to $160"
+              artID={viewArt[5].id}
+              img={
+                "http://127.0.0.1:8000/storage/" +
+                viewArt[5].image_path.slice(7)
+              }
+              title={viewArt[5].title}
+              width={viewArt[5].width}
+              height={viewArt[5].height}
+              price={"$ " + viewArt[5].price}
             />
             <Card
-              img={require("../resources/art-artistic-blue-eyes-1209843.jpg")}
-              title="Art title"
-              price="Price: $100 to $160"
+              artID={viewArt[6].id}
+              img={
+                "http://127.0.0.1:8000/storage/" +
+                viewArt[6].image_path.slice(7)
+              }
+              title={viewArt[6].title}
+              width={viewArt[6].width}
+              height={viewArt[6].height}
+              price={"$ " + viewArt[6].price}
             />
             <Card
-              img={require("../resources/abstract-painting-art-colorful-1193743.jpg")}
-              title="Art title"
-              price="Price: $100 to $160"
+              artID={viewArt[7].id}
+              img={
+                "http://127.0.0.1:8000/storage/" +
+                viewArt[7].image_path.slice(7)
+              }
+              title={viewArt[7].title}
+              width={viewArt[7].width}
+              height={viewArt[7].height}
+              price={"$ " + viewArt[7].price}
             />
           </div>
         </div>
 
         {/* COROUSEL ITEM 3 */}
-        <div class="carousel-item ">
+        {/* <div class="carousel-item ">
           <div class="cards-wrapper">
             <Card
               img={require("../resources/abstract-expressionism-abstract-painting-acrylic-paint-1585325.jpg")}
@@ -87,7 +171,7 @@ function TopArtCarousel() {
               price="Price: $100 to $160"
             />
           </div>
-        </div>
+        </div> */}
       </div>
 
       <button
