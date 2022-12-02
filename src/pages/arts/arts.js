@@ -87,6 +87,7 @@ function Arts() {
           title={item.title}
           width={item.width}
           height={item.height}
+          qty ={1}
           price={item.price}
         />
       </div>

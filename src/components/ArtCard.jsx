@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import swal from "sweetalert";
 
 function Card(props) {
   var [bag, setBag] = useState("bi bi-bag");

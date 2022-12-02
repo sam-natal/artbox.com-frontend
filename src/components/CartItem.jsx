@@ -1,24 +1,17 @@
 import React, { useState } from "react";
 
 function CartItem(props) {
-  var [qty, setQty] = useState(1);
-  const [total, setTotal] = useState(0);
+  var [qty, setQty] = useState(props.qty);
   function increment() {
     qty++;
     setQty(qty);
-    var newtotal = total + (qty * props.price);
-    setTotal(newtotal);
-    console.log(total);
   }
 
   function decrement() {
     if (qty > 1) {
       qty--;
       setQty(qty);
-      var newtotal = total + (qty * props.price);
-      setTotal(newtotal);
     }
-    console.log(total);
   }
   return (
     <div class="row cart-item-dv">
@@ -34,14 +27,6 @@ function CartItem(props) {
         <a
           href="#"
           onClick={() => {
-            // var cart = JSON.parse(localStorage.getItem("cart") || "[]");
-            // // cart.filter(item => {
-            // //   return item.id === props.id
-            // // })
-            // console.log(props);
-            // cart.pop();
-            // localStorage.setItem("cart", JSON.stringify(cart));
-            // localStorage.setItem("cart_count", cart.length);
             props.deleteCartItem(props.id);
           }}
         >

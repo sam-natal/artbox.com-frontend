@@ -17,8 +17,22 @@ function Cart() {
   }
   localStorage.setItem("cart", JSON.stringify(cart));
 
+  //A function to map through all th cart items and capture all the price into new price array
+  const prices = cart.map((art) => {
+    return art.price;
+  });
+
+  var total = 0;
+  if (prices.length > 0) {
+    total = prices.reduce((accumulator, price) => {
+      return accumulator + price;
+    });
+  }
+
+  console.log(total);
+
   var cart_item = "";
-  cart_item = cart.map((item, index) => {
+  cart_item = cart.map((item) => {
     return (
       <CartItem
         key={item.artID}
@@ -27,6 +41,7 @@ function Cart() {
         desc={item.title}
         size={item.width + " " + item.height}
         price={item.price}
+        qty={item.qty}
         deleteCartItem={deleteCartItem}
       />
     );
@@ -48,14 +63,14 @@ function Cart() {
 
       <div class="order-price-dv">
         <p>
-          Subtotal :<label>{0}</label>
+          Subtotal :<label>{"$ " + total}</label>
         </p>
         <p>
           Shipping cost :<label>$100</label>
         </p>
         <hr />
         <p>
-          Total order price :<label>$4100</label>
+          Total order price :<label>{"$ " + (total + 100)}</label>
         </p>
         <a href="/products">
           <button class="btn btn-primary">Continue shopping</button>
