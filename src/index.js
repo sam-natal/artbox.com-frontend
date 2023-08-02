@@ -10,7 +10,6 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 import App from "./App";
-//import Products from "./pages/products";
 import Arts from "./pages/arts/arts.js";
 import AnimalsArts from "./pages/arts/arts-animals.js";
 import PeopleArts from "./pages/arts/arts-people.js";
@@ -23,7 +22,8 @@ import Checkout from "./pages/checkout.js";
 import Signup from "./pages/signup.js";
 import Signin from "./pages/signin.js";
 import Account from "./pages/useraccount.js";
-import AdminSignIn from "./pages/admin-signin.js";
+import Search from "./pages/search.js";
+import { Order } from "./pages/order.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -37,15 +37,16 @@ root.render(
       <Route path="/people" element={<PeopleArts />}></Route>
       <Route path="/animals" element={<AnimalsArts />}></Route>
       <Route path="/flowers" element={<FlowersArts />}></Route>
+      <Route path="/search" element={<Search />}></Route>
 
       <Route path="/view_art" element={<ViewArt />}></Route>
       <Route path="/cart" element={<Cart />}></Route>
       <Route path="/wishlist" element={<Wish />}></Route>
-      <Route path="/checkout" element={<Checkout />}></Route>
-      <Route path="/login" element={localStorage.getItem("auth_token") ? <Navigate to="/" /> : <Signin />}></Route>
+      <Route path="/order" element={<Order />}></Route>
+      <Route path="/checkout" element={localStorage.getItem("auth_token") ? <Checkout />: <Signin />}></Route>
+      <Route path="/login" element={localStorage.getItem("auth_token") || localStorage.getItem("fb_id") ? <Navigate to="/" /> : <Signin />}></Route>
       <Route path="/register" element={localStorage.getItem("auth_token") ? <Navigate to="/" /> : <Signup />}></Route>
       <Route path="/account" element={<Account />}></Route>
-      <Route path="/adminsign" element={<AdminSignIn />}></Route>
     </Routes>
   </Router>
 );

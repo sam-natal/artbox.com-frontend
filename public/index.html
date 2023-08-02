@@ -19,9 +19,8 @@
       rel="stylesheet"
     />
     <title>Creative art box</title>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
-
+    <!-- <script src="https://accounts.google.com/gsi/client" async defer></script> -->
+    <script src="https://accounts.google.com/gsi/client"></script>
   </head>
   <body>
     <div id="root"></div>
@@ -31,17 +30,99 @@
       async
       defer
       crossorigin="anonymous"
-      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0&appId=1179348319668380&autoLogAppEvents=1"
-      nonce="V5b1r57m"
+      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0&appId=469422288683872&autoLogAppEvents=1"
+      nonce="Pc6HRVQ6"
     ></script>
 
-    <!-- <script>
-      FB.login(function(response) {
-        if (response.authResponse) {
-          window.top.location = "http://localhost:3000/account";
+    <!-- START OF THE PAYPAL PAYMENT INTERGRATION SCRIPT................................................ -->
+
+    <script src="https://www.paypal.com/sdk/js?client-id=AZd7b4FWIAyWo3R7-hqZ1DYys25sRbD9QoIUoMMF_lHA2qf-ptZRDuCXQLbOIapalQ03w_1kdpSFVk9R&currency=USD"></script>
+
+    <script>
+      paypal
+        .Buttons({
+          // Sets up the transaction when a payment button is clicked
+          createOrder: (data, actions) => {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  amount: {
+                    value: localStorage.getItem("grand_total"), // Can also reference a variable or function
+                  },
+                },
+              ],
+            });
+          },
+          // Finalize the transaction after payer approval
+          onApprove: (data, actions) => {
+            return actions.order.capture().then(function(orderData) {
+              // Successful capture! For dev/demo purposes:
+              console.log(
+                "Capture result",
+                orderData,
+                JSON.stringify(orderData, null, 2)
+              );
+              localStorage.setItem("orderData", JSON.stringify(orderData));
+              const transaction =
+                orderData.purchase_units[0].payments.captures[0];
+              // alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+              document.getElementById("trans-success").style.display = "block";
+              // When ready to go live, remove the alert and show a success message within this page. For example:
+              // const element = document.getElementById('paypal-button-container');
+              // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+              // Or go to another URL:  actions.redirect('thank_you.html');
+            });
+          },
+        })
+        .render("#paypal-button-container");
+    </script>
+
+    <!-- END OF THE PAYPAL PAYMENT INTERGRATION SCRIPT................................................ -->
+
+    <!-- AUTHENTICATION PROCESS OF LOGIN WITH FACEBOOK -->
+
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: "469422288683872", // 469422288683872
+          cookie: true,
+          xfbml: true,
+          version: "v15.0",
+        });
+
+
+      //   FB.login(function(response) {
+      //   if (response.authResponse) {
+      //     FB.api("/me", function(response) {
+      //       localStorage.setItem("fb_id",response.id )
+      //       localStorage.setItem("fb_name",response.name )
+      //       navigate(-1);
+      //     });
+      //     //window.location.replace("https://localhost:3000/");
+      //   } else {
+      //     console.log("User cancelled login or did not fully authorize.");
+      //   }
+      // });
+
+        FB.AppEvents.logPageView();
+
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        }); 
+      };
+
+      (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+          return;
         }
-      });
-    </script> -->
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+    </script>
 
     <script src="../src/index.js" type="text/babel"></script>
     <script

@@ -3,9 +3,15 @@ body {
   margin: 0;
   padding: 0;
   width: 100vw;
-  height: 100vh;
   overflow: auto;
 }
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 a {
   text-decoration: none !important;
   color: #000;
@@ -158,7 +164,6 @@ a {
   margin: 3rem 0 1rem;
 }
 .curated-h {
-  /* position: absolute; */
   display: inline-block;
   font-family: "Abril Fatface", cursive;
   color: #333357;
@@ -262,20 +267,16 @@ a {
   padding-top: 1%;
 }
 
-.cat-img-dv{
+.cat-img-dv {
   width: 100%;
   height: 350px;
-  overflow: hidden;
-  /* margin: 0 auto; */
 }
 
 .cat-img {
-  /* transition: transform 3s; */
   width: 100%;
   transition: 0.5s all ease-in-out;
 }
 .cat-img:hover {
-  /* transform: scale(0.7); */
   transform: scale(1.1);
 }
 
@@ -327,15 +328,19 @@ a {
 
 /* FOOTER SECTION STYLING */
 footer {
-  bottom: 0;
   width: 100%;
   padding: 1%;
   background: #f8f9fa;
   text-align: center;
+  margin-top: auto;
 }
 
 footer a {
-  color: rgb(152, 148, 148);
+  color: #0ca51e;
+}
+
+footer a:hover {
+  color: #707071;
 }
 
 .social-medias-l {
@@ -345,7 +350,7 @@ footer a {
 
 .copyright-p {
   text-align: center;
-  color: #ccc;
+  color: #707071;
 }
 
 @media only screen and (min-width: 700px) {
@@ -383,6 +388,15 @@ footer a {
   margin: 2% 8%;
 }
 
+.filter-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-group,
 .filter-dv form,
 .filter-dv h6,
 .filter-dv select,
@@ -390,8 +404,16 @@ footer a {
   display: inline-block;
 }
 
+.form-group {
+  width: 100%;
+}
+.filter-dv h6 {
+  width: 100px;
+}
+
 .filter-dv form {
   margin: 5px;
+  width: 150px;
 }
 
 .filter-dv select {
@@ -401,7 +423,7 @@ footer a {
 
 .select-container {
   position: relative;
-  width: auto;
+  width: 100%;
   margin: 0 1%;
 }
 
@@ -423,19 +445,17 @@ footer a {
   .filter-dv {
     padding: 0;
   }
-  .filter-dv h6 {
-    display: block;
-  }
-  .filter-dv form {
-    width: 100%;
+
+  .form-group {
+    width: 40%;
   }
   .select-container {
     position: relative;
-    width: 33%;
+    width: 130px;
     margin: 0 0.1%;
   }
   .container {
-    margin-top: 4rem;
+    margin-top: 5rem;
   }
 }
 
@@ -445,7 +465,6 @@ footer a {
   top: 4rem;
   height: auto;
   width: 100%;
-  /* background-color: #333357; */
   padding: 2% 9%;
 }
 
@@ -459,7 +478,6 @@ footer a {
   margin: 2% 0;
 }
 .view-prod-dv .left-dv {
-  /* background-color: antiquewhite; */
   border: 1px solid #ccc;
   padding-bottom: 50px;
 }
@@ -482,8 +500,7 @@ footer a {
 }
 
 .related-h {
-  /* position: relative; */
-  margin: 7% 8.5% 0;
+  margin: 8% 8.5% 0;
   padding-bottom: 1%;
   border-bottom: 1px solid #ccc;
   color: #333357;
@@ -499,7 +516,7 @@ footer a {
 
   .related-h {
     position: absolute;
-    bottom: -60%;
+    bottom: -70%;
     width: 85%;
   }
 
@@ -509,18 +526,33 @@ footer a {
 }
 
 /* STYLING FOR THE CART page */
-
-.cart-counter{
+/* Style for the div that display total number of items available in cat */
+.cart-counter {
   position: absolute;
-  top:0;
+  top: 0;
   right: 31px;
   color: red;
-  width:20px;
-  height:20px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   text-align: center;
   z-index: 9999;
 }
+.qty-dv {
+  display: inline-block;
+  font-size: 20px;
+  margin: 0 1rem 0 1rem;
+}
+
+.qty-adjuster {
+  font-size: 20px;
+}
+
+.qty-adjuster:hover {
+  cursor: pointer;
+  color: #0ca51e;
+}
+
 .cart-main-dv {
   position: relative;
   top: 30px;
@@ -580,6 +612,12 @@ footer a {
 }
 
 @media only screen and (max-width: 900px) {
+  .cart-counter {
+    position: relative;
+    top: -52px;
+    left: 3%;
+  }
+
   .cart-main-dv {
     padding: 1px;
   }
@@ -629,6 +667,7 @@ footer a {
 .checkout-right-dv {
   background-color: #f9f9f9;
   height: 350px;
+  padding: 20px !important;
   margin-top: 6% !important;
 }
 
@@ -1036,4 +1075,80 @@ footer a {
   #chat-shadow-dv textarea {
     width: 71%;
   }
+}
+
+/* TOOLTIP STYLING */
+.tooltp {
+  cursor: pointer;
+  position: relative;
+  display: inline-block !important;
+}
+
+.tooltp .tooltiptext,
+.tooltp .wish-nav-tltptxt,
+.tooltp .cart-nav-tltptxt {
+  display: none;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 2px 5px;
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+}
+
+/* Cart and bag tooltip inside the cart card */
+.tooltp .tooltiptext {
+  width: 220px;
+  bottom: 100%;
+  right: -93px;
+}
+
+/* bag tooltip at the navbar */
+.tooltp .wish-nav-tltptxt {
+  width: auto;
+  top: 120%;
+  right: -15%;
+}
+
+/* cart tooltip at the navbar */
+.tooltp .cart-nav-tltptxt {
+  width: auto;
+  top: 120%;
+  left: -10%;
+}
+
+.tooltp .tooltiptext::after,
+.tooltp .wish-nav-tltptxt::after,
+.tooltp .cart-nav-tltptxt::after {
+  content: " ";
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltp .tooltiptext::after {
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+}
+
+.tooltp .wish-nav-tltptxt::after,
+.tooltp .cart-nav-tltptxt::after {
+  bottom: 100%;
+  left: 50%;
+  transform: rotate(180deg);
+}
+
+/* .tooltp .cart-nav-tltptxt::after {
+  bottom: 100%;
+  left: 50%;
+  transform: rotate(180deg);
+} */
+
+.tooltp:hover .tooltiptext,
+.tooltp:hover .wish-nav-tltptxt,
+.tooltp:hover .cart-nav-tltptxt {
+  display: block;
 }

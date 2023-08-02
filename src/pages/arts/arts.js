@@ -5,7 +5,17 @@ import Card from "../../components/ArtCard";
 import axios from "axios";
 
 function Arts() {
-  
+  const [wishes, setWishes] = useState([]);
+  var uID = localStorage.getItem("user_id");
+
+  useEffect(() => {
+    axios.post(`/api/checkWish`, { uID: uID }).then((res) => {
+      if (res.data.status === 200) {
+        setWishes(res.data.check);
+      }
+    });
+  }, []);
+
   const [viewArt, setArt] = useState([]);
   useEffect(() => {
     axios.get(`/api/view-art`).then((res) => {
@@ -74,8 +84,6 @@ function Arts() {
   //Mapping data to the card for the display.
   var show_arts = "";
   show_arts = viewArt.map((item) => {
-
-  
     return (
       <div
         key={item.id}
@@ -87,8 +95,10 @@ function Arts() {
           title={item.title}
           width={item.width}
           height={item.height}
-          qty ={1}
+          qty={1}
           price={item.price}
+          ttlPrice={item.price}
+          wish={wishes}
         />
       </div>
     );
@@ -101,84 +111,88 @@ function Arts() {
 
       <div className="filter-dv">
         <hr />
-        <h6>
-          <i className="bi bi-filter-left"></i>Filter:
-        </h6>
-        <form>
-          <div className="form-group">
-            <div className="select-container">
-              <select
-                id="category-filter"
-                className="form-control"
-                style={{ cursor: "pointer" }}
-                onChange={getCategoryFilter}
-              >
-                <option value="">Category &nbsp;&nbsp;&nbsp;&#8744;</option>
-                <option value="1">People</option>
-                <option value="2">Animals</option>
-                <option value="3">Abstract</option>
-                <option value="4">Flowers</option>
-              </select>
-              {/* <i className="bi bi-chevron-down filter-arrow"></i>     */}
+        <div className="filter-container">
+          <h6>
+            <i className="bi bi-filter-left"></i>Filter:
+          </h6>
+          <form>
+            <div className="form-group">
+              <div className="select-container">
+                <select
+                  id="category-filter"
+                  className="form-control"
+                  style={{ cursor: "pointer" }}
+                  onChange={getCategoryFilter}
+                >
+                  <option value="">Category</option>
+                  <option value="1">People</option>
+                  <option value="2">Animals</option>
+                  <option value="3">Abstract</option>
+                  <option value="4">Flowers</option>
+                </select>
+                <i className="bi bi-chevron-down filter-arrow"></i>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
 
-        <form>
-          <div className="form-group">
-            <div className="select-container">
-              <select
-                className="form-control"
-                style={{ cursor: "pointer" }}
-                id="price-filter"
-                onChange={getPriceFilter}
-              >
-                <option>Price &nbsp;&nbsp;&nbsp;&#8744;</option>
-                <option value="25">Under $25</option>
-                <option value="50">$25 - $50</option>
-                <option value="75">$50 - $75</option>
-                <option value="100">$75 - $100</option>
-                <option value="101">Above $100</option>
-              </select>
+          <form>
+            <div className="form-group">
+              <div className="select-container">
+                <select
+                  className="form-control"
+                  style={{ cursor: "pointer" }}
+                  id="price-filter"
+                  onChange={getPriceFilter}
+                >
+                  <option>Price</option>
+                  <option value="25">Under $25</option>
+                  <option value="50">$25 - $50</option>
+                  <option value="75">$50 - $75</option>
+                  <option value="100">$75 - $100</option>
+                  <option value="101">Above $100</option>
+                </select>
+                <i className="bi bi-chevron-down filter-arrow"></i>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
 
-        <form>
-          <div className="form-group">
-            <div className="select-container">
-              <select
-                className="form-control"
-                style={{ cursor: "pointer" }}
-                id="size-filter"
-                onChange={getSizeFilter}
-              >
-                <option>Size &nbsp;&nbsp;&nbsp;&#8744;</option>
-                <option value="10">Small</option>
-                <option value="20">Medium</option>
-                <option value="30">Large</option>
-              </select>
+          <form>
+            <div className="form-group">
+              <div className="select-container">
+                <select
+                  className="form-control"
+                  style={{ cursor: "pointer" }}
+                  id="size-filter"
+                  onChange={getSizeFilter}
+                >
+                  <option>Size</option>
+                  <option value="10">Small</option>
+                  <option value="20">Medium</option>
+                  <option value="30">Large</option>
+                </select>
+                <i className="bi bi-chevron-down filter-arrow"></i>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
 
-        <form>
-          <div className="form-group">
-            <div className="select-container">
-              <select
-                className="form-control"
-                style={{ cursor: "pointer" }}
-                id="orientation-filter"
-                onChange={getOrientationFilter}
-              >
-                <option>Orientation &nbsp;&nbsp;&nbsp;&#8744;</option>
-                <option value="pot">Portrait</option>
-                <option value="lan">Landscape</option>
-              </select>
-              {/* <i className="bi bi-chevron-down filter-arrow"></i> */}
+          <form>
+            <div className="form-group">
+              <div className="select-container">
+                <select
+                  className="form-control"
+                  style={{ cursor: "pointer" }}
+                  id="orientation-filter"
+                  onChange={getOrientationFilter}
+                >
+                  <option>Orientation</option>
+                  <option value="pot">Portrait</option>
+                  <option value="lan">Landscape</option>
+                </select>
+               <i className="bi bi-chevron-down filter-arrow"></i>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
 
       <div className="container">

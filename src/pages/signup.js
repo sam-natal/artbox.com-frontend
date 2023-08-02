@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode";
 
 function Singup() {
   const navigate = useNavigate();
+
   const [registerInput, setRegister] = useState({
     fname: "",
     lname: "",
@@ -35,8 +36,9 @@ function Singup() {
         if (res.data.status === 200) {
           localStorage.setItem("auth_token", res.data.token);
           localStorage.setItem("auth_name", res.data.username);
+          localStorage.setItem("user_id", res.data.userID);
           swal("Success", res.data.message, "success");
-          navigate(-1);
+          navigate(-2);
         } else {
           setRegister({
             ...registerInput,
@@ -48,13 +50,14 @@ function Singup() {
   };
 
   // Sign in with google code section
-  // function handleCallbackResponse(response) {
-  //   console.log("Encoded JWT ID token:" + response.credential);
-  //   console.log(jwt_decode(response.credential));
-  //   navigate("/account");
-  // }
+  function handleCallbackResponse(response) {
+    console.log("Encoded JWT ID token:" + response.credential);
+    console.log(jwt_decode(response.credential));
+    navigate("/account");
+  }
+
+  /* global google */
   // useEffect(() => {
-  //   /* global google */
   //   google.accounts.id.initialize({
   //     client_id:
   //       "694164949025-0cg186cuth8u96jtrel3u6tlj32594jk.apps.googleusercontent.com",
@@ -64,29 +67,32 @@ function Singup() {
   //   google.accounts.id.renderButton(document.getElementById("googleSign"), {
   //     theme: "outline",
   //     size: "large",
+  //     width: "350px",
   //   });
   // }, []);
 
+  
   return (
     <>
-      <div class="signup-top-dv">
+      <div className="signup-top-dv">
         <a href="/">
           <img
             src={require("../resources/Art_Box_Logo-removebg-preview.png")}
+            alt=""
           />
         </a>
         <h3>Create an account</h3>
         <p>
-          Already a member? <a href="/signin">Sign in</a>
+          Already a member? <a href="/login">Sign in</a>
         </p>
       </div>
-      <div class="row signup-row">
-        <div class="col col-lg-6 col-md-12 signup-left-col">
-          <form onSubmit={registerSubmit} class="row g-3" action="/account">
-            <div class="col-md-6">
+      <div className="row signup-row">
+        <div className="col col-lg-6 col-md-12 signup-left-col">
+          <form onSubmit={registerSubmit} className="row g-3" action="/account">
+            <div className="col-md-6">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="inputEmail4"
                 placeholder="First name"
                 name="fname"
@@ -97,10 +103,10 @@ function Singup() {
                 {registerInput.error_list.fname}
               </span>
             </div>
-            <div class="col-md-6">
+            <div className="col-md-6">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="inputPassword4"
                 placeholder="Last name"
                 name="lname"
@@ -111,10 +117,10 @@ function Singup() {
                 {registerInput.error_list.lname}
               </span>
             </div>
-            <div class="col-12">
+            <div className="col-12">
               <input
                 type="email"
-                class="form-control"
+                className="form-control"
                 id="inputEmail4"
                 placeholder="Email"
                 name="email"
@@ -126,10 +132,10 @@ function Singup() {
               </span>
             </div>
 
-            <div class="col-12">
+            <div className="col-12">
               <input
                 type="password"
-                class="form-control"
+                className="form-control"
                 id="inputPassword4"
                 placeholder="Password"
                 name="password"
@@ -141,10 +147,10 @@ function Singup() {
               </span>
             </div>
 
-            <div class="col-12">
+            <div className="col-12">
               <input
                 type="password"
-                class="form-control"
+                className="form-control"
                 id="inputPassword4"
                 placeholder="Confirm password"
               />
@@ -153,42 +159,43 @@ function Singup() {
               </span>
             </div>
 
-            <div class="col-12">
-              <div class="form-check">
+            <div className="col-12">
+              <div className="form-check">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="checkbox"
                   id="gridCheck"
                 />
-                <label class="form-check-label" for="gridCheck">
+                <label className="form-check-label" htmlFor="gridCheck">
                   By Creating an account , you agree to our{" "}
-                  <a href="">User Agreement</a> and acknowledge reading our{" "}
-                  <a href="">User Privacy Notice</a>
+                  <a href="www.google.com">User Agreement</a> and acknowledge
+                  reading our <a href="www.google.com">User Privacy Notice</a>
                 </label>
               </div>
             </div>
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary">
+            <div className="col-12">
+              <button type="submit" className="btn btn-primary">
                 Sign up
               </button>
             </div>
           </form>
         </div>
 
-        <div class="col col-lg-6 col-md-12 signup-right-col">
-          <div class="or-dv">
+        <div className="col col-lg-6 col-md-12 signup-right-col">
+          <div className="or-dv">
             <span>or</span>
           </div>
           <div id="googleSign"></div>
 
           <div
-            class="fb-login-button"
-            data-width=""
+            className="fb-login-button"
+            data-width="350px"
             data-size="large"
             data-button-type="continue_with"
             data-layout="rounded"
             data-auto-logout-link="false"
             data-use-continue-as="true"
+            style={{ marginTop: "30px" }}
           ></div>
         </div>
       </div>

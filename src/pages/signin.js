@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import swal from "sweetalert";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import Facebook from "../components/OAuth/Facebook";
 
 function Singin() {
-
   const navigate = useNavigate();
 
   const [loginInput, setLogin] = useState({
@@ -33,6 +31,7 @@ function Singin() {
         if (res.data.status === 200) {
           localStorage.setItem("auth_token", res.data.token);
           localStorage.setItem("auth_name", res.data.username);
+          localStorage.setItem("user_id", res.data.userID);
           swal("Success", res.data.message, "success");
           navigate(-1);
         } else if (res.data.status === 401) {
@@ -45,14 +44,15 @@ function Singin() {
   };
 
   // Sign in with google code section
-  // function handleCallbackResponse(response) {
-  //   console.log("Encoded JWT ID token:" + response.credential);
-  //   console.log(jwt_decode(response.credential));
-  //   navigate("/account");
-  // }
-  // useEffect(() => {
-  //   /* global google */
+  function handleCallbackResponse(response) {
+    console.log("Encoded JWT ID token:" + response.credential);
+    console.log(jwt_decode(response.credential));
+    navigate("/account");
+  }
 
+ 
+  // useEffect(() => {
+  //    /* global google */
   //   google.accounts.id.initialize({
   //     client_id:
   //       "694164949025-0cg186cuth8u96jtrel3u6tlj32594jk.apps.googleusercontent.com",
@@ -65,19 +65,18 @@ function Singin() {
   //   });
   // }, []);
 
-
-
   return (
     <>
       <div className="signup-top-dv">
         <a href="/">
           <img
             src={require("../resources/Art_Box_Logo-removebg-preview.png")}
+            alt=""
           />
         </a>
         <h3>Sign in to creative art box</h3>
         <p>
-          Not a member? <a href="/signup">Create account</a>
+          Not a member? <a href="/register">Create account</a>
         </p>
       </div>
 
@@ -124,25 +123,36 @@ function Singin() {
           <div className="signin-or-dv">
             <span>or</span>
           </div>
-          {/* <button className="btn btn-outline-info signup-alt-btn">
-            <img
-              src={require("../resources/icons/icons8-google.svg")}
-              style={{ height: "30px", marginRight: "10px" }}
-            />
-            Continue with google
-          </button> */}
-            <div id="googleSign"></div>
-            <button className="btn btn-primary signup-alt-btn">
-            <i
-              className="bi bi-facebook"
-              style={{ height: "35px", marginRight: "10px" }}
-            ></i>
-            <span style={{ position: "relative", bottom: "6px" }}>
-              Continue with facebook
-            </span>
-          </button>
-
-          <Facebook />
+          <div id="googleSign"></div>
+          <div
+            className="fb-login-button"
+            data-width="350px"
+            data-size="large"
+            data-button-type="continue_with"
+            data-layout="rounded"
+            data-auto-logout-link="false"
+            data-use-continue-as="true"
+            style={{ marginTop: "30px" }}
+            onLogin={() => {
+              //alert("hi there...");
+              /* global FB */
+              // FB.login(function(response) {
+              //   if (response.authResponse) {
+              //     FB.api("/me", function(response) {
+              //       localStorage.setItem("fb_id", response.id);
+              //       localStorage.setItem("fb_name", response.name);
+              //       navigate(-1);
+              //     });
+                  
+              //     //window.location.replace("https://localhost:3000/");
+              //   } else {
+              //     console.log(
+              //       "User cancelled login or did not fully authorize."
+              //     );
+              //   }
+              // });
+            }}
+          ></div>
         </div>
       </div>
     </>

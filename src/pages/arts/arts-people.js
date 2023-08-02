@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Card from "../../components/ArtCard";
@@ -18,6 +18,17 @@ function PeopleArts() {
     }
   });
 
+  const [wishes,setWishes] = useState([]);
+  var uID = localStorage.getItem("user_id");
+
+  useEffect(() => {
+  axios.post(`/api/checkWish`, {uID : uID}).then((res) => {
+    if (res.data.status === 200 ) {
+      setWishes(res.data.check);
+    } 
+  });
+}, []);
+
   //Mapping data to the card for the display.
   var show_arts = "";
   show_arts = viewArt.map((item) => {
@@ -32,7 +43,10 @@ function PeopleArts() {
           title={item.title}
           width={item.width}
           height={item.height}
-          price={"$ " + item.price}
+          price={item.price}
+          qty ={1}
+          ttlPrice={item.price}
+          wish = {wishes}
         />
       </div>
     );

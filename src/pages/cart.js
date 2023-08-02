@@ -4,10 +4,38 @@ import Footer from "../components/Footer";
 import CartItem from "../components/CartItem";
 
 function Cart() {
+  var uID = localStorage.getItem("user_id");
+
   const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart") || "[]")
+    JSON.parse(localStorage.getItem(uID ? "cart" + uID : "guest_cart") || "[]")
   );
 
+  // const [cart, setCart] = useState(
+  //   JSON.parse(localStorage.getItem(uID ? "cart" + uID : "guest_cart") || "[]")
+  // );
+
+  // const arr = {...JSON.parse(localStorage.getItem( "cart" + uID)),...JSON.parse(localStorage.getItem( "guest_cart"))};
+
+  // console.log(arr);
+
+  // uID ? setCart(...cart,JSON.parse(localStorage.getItem("guest_cart") || "[]")) : '';
+  if (uID) {
+    localStorage.removeItem("guest_cart")
+  }
+
+
+  //Codes for updating a cart every o.1 second
+  setInterval(UpdateCart, 100);
+  function UpdateCart() {
+    uID = localStorage.getItem("user_id");
+    setCart(
+      JSON.parse(
+        localStorage.getItem(uID ? "cart" + uID : "guest_cart") || "[]"
+      )
+    );
+  }
+
+  //A function to remove a cart item from the cart item
   function deleteCartItem(id) {
     setCart(
       cart.filter((item) => {
@@ -15,11 +43,12 @@ function Cart() {
       })
     );
   }
-  localStorage.setItem("cart", JSON.stringify(cart));
+
+  localStorage.setItem(uID ? "cart" + uID : "guest_cart", JSON.stringify(cart));
 
   //A function to map through all th cart items and capture all the price into new price array
   const prices = cart.map((art) => {
-    return art.price;
+    return art.ttlPrice;
   });
 
   var total = 0;
@@ -29,8 +58,6 @@ function Cart() {
     });
   }
 
-  console.log(total);
-
   var cart_item = "";
   cart_item = cart.map((item) => {
     return (
@@ -39,9 +66,10 @@ function Cart() {
         id={item.artID}
         img={item.img}
         desc={item.title}
-        size={item.width + " " + item.height}
+        size={item.width + '" x ' + item.height + '"'}
         price={item.price}
         qty={item.qty}
+        ttlPrice={item.price}
         deleteCartItem={deleteCartItem}
       />
     );
@@ -50,18 +78,18 @@ function Cart() {
   return (
     <>
       <Navbar />
-      <div class="cart-main-dv">
-        <h1 class="cart-h">Cart</h1>
-        <div class="row cart-heading-dv">
-          <div class="col col-lg-3 col-2">ITEM</div>
-          <div class="col col-lg-5 col-6">DESCRIPTION</div>
-          <div class="col col-lg-3 col-2">QUANTITY</div>
-          <div class="col col-lg-1 col-1">PRICE</div>
+      <div className="cart-main-dv">
+        <h1 className="cart-h">Cart</h1>
+        <div className="row cart-heading-dv">
+          <div className="col col-lg-3 col-2">ITEM</div>
+          <div className="col col-lg-5 col-6">DESCRIPTION</div>
+          <div className="col col-lg-3 col-2">QUANTITY</div>
+          <div className="col col-lg-1 col-1">PRICE</div>
         </div>
         {cart_item}
       </div>
 
-      <div class="order-price-dv">
+      <div className="order-price-dv">
         <p>
           Subtotal :<label>{"$ " + total}</label>
         </p>
@@ -72,11 +100,16 @@ function Cart() {
         <p>
           Total order price :<label>{"$ " + (total + 100)}</label>
         </p>
-        <a href="/products">
-          <button class="btn btn-primary">Continue shopping</button>
+        <a href="/arts">
+          <button className="btn btn-primary">Continue shopping</button>
         </a>
-        <a href="/checkout">
-          <button class="btn btn-warning">Proceed to checkout</button>
+        <a
+          href="/checkout"
+          onClick={() => {
+            localStorage.setItem("location", "cart");
+          }}
+        >
+          <button className="btn btn-warning">Proceed to checkout</button>
         </a>
       </div>
       <Footer />
