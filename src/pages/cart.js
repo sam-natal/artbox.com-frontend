@@ -86,7 +86,17 @@ function Cart() {
           <div className="col col-lg-3 col-2">QUANTITY</div>
           <div className="col col-lg-1 col-1">PRICE</div>
         </div>
-        {cart_item}
+        {cart_item.length > 0 ? (
+            cart_item
+          ) : (
+            <div className="alert alert-info" role="alert">
+              <h4 className="alert-heading mb-5"> Your shopping cart is empty.</h4>
+              <hr />
+              <p className="mb-0">
+                Got to the <a href="/arts">shopping page</a> to add arts in your shoping cart.
+              </p>
+            </div>
+          )}
       </div>
 
       <div className="order-price-dv">

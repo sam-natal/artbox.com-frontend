@@ -18,7 +18,7 @@ function ExploreCategory() {
               alt=''
             />
             <div className="cat-tag-dv">
-              <h4>ABSTRACT</h4>
+              <h4 className="cat-tag-h4">ABSTRACT</h4>
             </div>
           </div>
         </a>
@@ -36,7 +36,7 @@ function ExploreCategory() {
               alt=''
             />
             <div className="cat-tag-dv">
-              <h4>FLOWERS</h4>
+              <h4 className="cat-tag-h4">FLOWERS</h4>
             </div>
           </div>
         </a>
@@ -54,7 +54,7 @@ function ExploreCategory() {
               alt=''
             />
             <div className="cat-tag-dv">
-              <h4>PEOPLE</h4>
+              <h4 className="cat-tag-h4">PEOPLE</h4>
             </div>
           </div>
         </a>
@@ -76,7 +76,7 @@ function ExploreCategory() {
             </div>
 
             <div className="cat-tag-dv">
-              <h4>ANIMALS</h4>
+              <h4 className="cat-tag-h4">ANIMALS</h4>
             </div>
           </div>
         </a>

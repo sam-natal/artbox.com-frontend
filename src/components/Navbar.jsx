@@ -136,6 +136,12 @@ function Navbar(props) {
                   Arts
                 </a>
               </li>
+
+              <li className="nav-item nav-list">
+                <a className="nav-link active" aria-current="page" href="/artists">
+                  Artists
+                </a>
+              </li>
             </ul>
             <form
               className="d-flex nav-form w-75"
@@ -178,19 +184,19 @@ function Navbar(props) {
                   <li>
                     Call:
                     <label style={{ float: "right", fontWeight: "bold" }}>
-                      +(255)719-095-110
+                      +(255)767-952-016
                     </label>
                   </li>
                   <li>
                     WhatsApp:
                     <label style={{ float: "right", fontWeight: "bold" }}>
-                      +(255)719-095-110
+                      +(255)767-952-016
                     </label>
                   </li>
                   <li>
                     Email:
                     <label style={{ float: "right", fontWeight: "bold" }}>
-                      ochu@gmail.com
+                      help@artbox.com
                     </label>
                   </li>
                   <li style={{ textAlign: "center", margin: "9px 0" }}>
@@ -260,7 +266,7 @@ function HomeVideo() {
 }
 
 function FirstHeading() {
-  return <h1 className="big-headings">Most wanted arts</h1>;
+  return <h1 className="big-headings">Recent arts</h1>;
 }
 
 export default Navbar;

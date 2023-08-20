@@ -107,8 +107,6 @@ function Arts() {
   return (
     <>
       <Navbar />
-      {/* <Filter /> */}
-
       <div className="filter-dv">
         <hr />
         <div className="filter-container">

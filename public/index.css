@@ -262,9 +262,12 @@ a {
   bottom: 0%;
   width: 94%;
   height: 40px;
-  background-color: rgb(0, 0, 0, 0.5);
-  color: #fff;
+  color: #000;
   padding-top: 1%;
+}
+
+.cat-tag-h4 {
+  font-weight: bolder;
 }
 
 .cat-img-dv {
@@ -477,6 +480,13 @@ footer a:hover {
   display: block;
   margin: 2% 0;
 }
+
+.by-span{
+  font-size: x-large;
+}
+.artist-link{
+  font-style: italic;
+}
 .view-prod-dv .left-dv {
   border: 1px solid #ccc;
   padding-bottom: 50px;
@@ -499,7 +509,7 @@ footer a:hover {
   margin-top: 1%;
 }
 
-.related-h {
+.related-h, .similar-h {
   margin: 8% 8.5% 0;
   padding-bottom: 1%;
   border-bottom: 1px solid #ccc;
@@ -516,7 +526,13 @@ footer a:hover {
 
   .related-h {
     position: absolute;
-    bottom: -70%;
+    bottom: 15%;
+    width: 85%;
+  }
+
+  .similar-h {
+    position: absolute;
+    bottom: -40%;
     width: 85%;
   }
 
@@ -637,6 +653,23 @@ footer a:hover {
     left: 0;
     margin: 6% 6%;
   }
+}
+
+/* STYLING FOR THE ARTISTS PAGE */
+.artist-card {
+  margin: 6%;
+  text-align: center;
+}
+
+/* STYLING FOR THE VIEW ARTIST PAGE */
+.artist-container {
+  text-align: center;
+  /* background-color: #333357; */
+}
+
+.bio{
+  width: 60%;
+  margin: auto;
 }
 
 /* STYLING FOR THE WISHLIST PAGE */

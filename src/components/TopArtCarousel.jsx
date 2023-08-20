@@ -164,32 +164,6 @@ function TopArtCarousel() {
             />
           </div>
         </div>
-
-        {/* COROUSEL ITEM 3 */}
-        {/* <div className="carousel-item ">
-          <div className="cards-wrapper">
-            <Card
-              img={require("../resources/abstract-expressionism-abstract-painting-acrylic-paint-1585325.jpg")}
-              title="Art title"
-              price="Price: $100 to $160"
-            />
-            <Card
-              img={require("../resources/a-removebg-preview.png")}
-              title="Art title"
-              price="Price: $100 to $160"
-            />
-            <Card
-              img={require("../resources/b-removebg-preview.png")}
-              title="Art title"
-              price="Price: $100 to $160"
-            />
-            <Card
-              img={require("../resources/c-removebg-preview.png")}
-              title="Art title"
-              price="Price: $100 to $160"
-            />
-          </div>
-        </div> */}
       </div>
 
       <button

@@ -6,7 +6,6 @@ import axios from "axios";
 import swal from "sweetalert";
 
 function ViewProduct() {
-
   const [viewArt, setArt] = useState([]);
   const uID = localStorage.getItem("user_id");
   const aID = localStorage.getItem("art_id");
@@ -25,6 +24,17 @@ function ViewProduct() {
       }
     });
   }, []);
+
+  var artist_id = viewArt.map((item) => {
+    return item.artistID;
+  });
+
+  console.log(viewArt);
+
+  //A function to store art ID on the local storage
+  function storeArtistId() {
+    localStorage.setItem("artist_id", artist_id);
+  }
 
   var available = cart.filter((i) => {
     return i.artID === aID;
@@ -53,6 +63,12 @@ function ViewProduct() {
           </p>
           <p>
             Price: <span className="bi bi-currency-dollar">{item.price}</span>
+          </p>
+          <p>
+            <span className="by-span">By, </span>
+            <a href="/view_artist" onClick={storeArtistId} className="artist-link">
+              {item.first_name + " " + item.last_name}
+            </a>
           </p>
           <button
             className="btn btn-primary w-100"
@@ -125,10 +141,10 @@ function ViewProduct() {
             href="/Checkout"
             onClick={() => {
               localStorage.setItem("one", JSON.stringify(item));
-              localStorage.setItem("location", 'view_art');
+              localStorage.setItem("location", "view_art");
             }}
           >
-            <button className="btn btn-warning w-100"   >Buy now</button>
+            <button className="btn btn-warning w-100">Buy now</button>
           </a>
         </div>
       </div>
@@ -154,16 +170,16 @@ function ViewProduct() {
     }
   });
 
-  const [wishes,setWishes] = useState([]);
+  const [wishes, setWishes] = useState([]);
   //var uID = localStorage.getItem("user_id");
 
   useEffect(() => {
-  axios.post(`/api/checkWish`, {uID : uID}).then((res) => {
-    if (res.data.status === 200 ) {
-      setWishes(res.data.check);
-    } 
-  });
-}, []);
+    axios.post(`/api/checkWish`, { uID: uID }).then((res) => {
+      if (res.data.status === 200) {
+        setWishes(res.data.check);
+      }
+    });
+  }, []);
 
   var arts_by_category = "";
   arts_by_category = viewArtByCategory.map((item) => {
@@ -189,7 +205,7 @@ function ViewProduct() {
 
       {art}
 
-      <h3 className="related-h">Discover similar arts</h3>
+      <h3 className="similar-h">Discover similar arts</h3>
 
       <div className="container related-dv">
         <div className="row">{arts_by_category}</div>

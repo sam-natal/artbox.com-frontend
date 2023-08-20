@@ -3,10 +3,8 @@ import swal from "sweetalert";
 import axios from "axios";
 
 function Card(props) {
-  //var [heart_icon_style, setHeart] = useState("");
-  var heart_icon_style='';
   var [bag_icon_style, setBag] = useState("");
-
+  var [heart_icon_style, setHeart] = useState("");
   var uID = localStorage.getItem("user_id");
 
   //A function to store art ID on the local storage
@@ -82,29 +80,29 @@ function Card(props) {
           <div className="tooltp">
             <i
               className={heart_icon_style}
-              onClick={() => {
-                if (uID) {
-                  const data = {
-                    customer_id: uID,
-                    art_id: props.artID,
-                  };
-
-                  axios.post(`/api/saveWish`, data).then((res) => {
-                    if (res.data.status === 200) {
-                      //setHeart("bi bi-heart-fill");
-                      heart_icon_style = "bi bi-heart-fill";
-                      swal("Success", res.data.message, "success");
+              onClick={
+                uID
+                  ? () => {
+                      const data = {
+                        customer_id: uID,
+                        art_id: props.artID,
+                      };
+                      axios.post(`/api/saveWish`, data).then((res) => {
+                        if (res.data.status === 200) {
+                          swal("Success", res.data.message, "success");
+                          setHeart("bi bi-heart-fill");
+                        }
+                        if (res.data.status === 401) {
+                          swal(res.data.message);
+                        }
+                      });
                     }
-                    if (res.data.status === 401) {
-                      swal(res.data.message);
+                  : () => {
+                      swal(
+                        "Sorry !, you have to register or login first to add items on your wishlist."
+                      );
                     }
-                  });
-                } else {
-                  swal(
-                    "Sorry ! you have to register or login first to add items on your wishlist."
-                  );
-                }
-              }}
+              }
             ></i>
             <span className="tooltiptext">Add this item to your wishlist.</span>
           </div>
@@ -139,7 +137,6 @@ function Card(props) {
                       }
                     }
                   : () => {
-                      //let cart = "";
                       cart = JSON.parse(
                         localStorage.getItem(
                           uID ? "cart" + uID : "guest_cart"
