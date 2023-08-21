@@ -73,7 +73,7 @@ function AddressForm() {
       </div>
 
       <div className="col-md-4">
-        <select id="inputState" className="form-select">
+        <select id="inputState" className="form-select" > 
           <option selected>State/Region</option>
           <option>...</option>
         </select>
@@ -89,7 +89,7 @@ function AddressForm() {
       <div className="col-12">
         <div className="form-check">
           <input className="form-check-input" type="checkbox" id="gridCheck" />
-          <label className="form-check-label" for="gridCheck">
+          <label className="form-check-label" >
             Make this my default address
           </label>
         </div>

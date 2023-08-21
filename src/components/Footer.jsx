@@ -32,16 +32,16 @@ function Footer() {
           <ul className="navbar-nav">
             <h5>Help</h5>
             <li>
-              <a href="">About Us</a>
+              <a href="#foo">About Us</a>
             </li>
             <li>
-              <a href="">Live Chat</a>
+              <a href="#foo">Live Chat</a>
             </li>
             <li>
-              <a href="">Contact</a>
+              <a href="#foo">Contact</a>
             </li>
             <li>
-              <a href="">FAQ</a>
+              <a href="#foo">FAQ</a>
             </li>
           </ul>
         </div>
@@ -86,13 +86,13 @@ function Footer() {
           <ul className="navbar-nav">
             <h5>Business</h5>
             <li>
-              <a href="">Legal Info</a>
+              <a href="#foo">Legal Info</a>
             </li>
             <li>
-              <a href="">Privacy Policy</a>
+              <a href="#foo">Privacy Policy</a>
             </li>
             <li>
-              <a href="">Terms & Conditions</a>
+              <a href="#foo">Terms & Conditions</a>
             </li>
           </ul>
         </div>

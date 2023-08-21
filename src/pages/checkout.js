@@ -80,8 +80,8 @@ function Checkout() {
               style={{ width: "95%" }}
             >
               <label>
-                <i className="bi bi-plus-lg" id="maximize-icon"></i> Add a billing
-                address
+                <i className="bi bi-plus-lg" id="maximize-icon"></i> Add a
+                billing address
               </label>
             </div>
 
@@ -91,8 +91,8 @@ function Checkout() {
               onClick={RemoveAddressForm}
             >
               <label>
-                <i className="bi bi-dash-lg" id="maximize-icon"></i> Add a billing
-                address
+                <i className="bi bi-dash-lg" id="maximize-icon"></i> Add a
+                billing address
               </label>
             </div>
 
@@ -145,8 +145,8 @@ function Checkout() {
               </p>
               <p>
                 <input type="checkbox"></input> By placing your order, you agree
-                to Ochus's <a href="www.google.com">User Agreement</a> as well as{" "}
-                <a href="www.google.com">Privacy policy</a>
+                to Ochus's <a href="www.google.com">User Agreement</a> as well
+                as <a href="www.google.com">Privacy policy</a>
               </p>
               {/* <button className="btn btn-warning m-2 w-100" id="payment-btn">
                 Pay now
@@ -166,27 +166,29 @@ function Checkout() {
           top: "3cm",
           zIndex: "99999",
           left: "27%",
-          display:"none"
+          display: "none",
         }}
       >
         <h4 className="alert-heading">Transaction completed</h4>
-        <p>
-            Thank you for your purchase!.
-        </p>
+        <p>Thank you for your purchase!.</p>
         <hr />
-        <button className="btn btn-outline-danger w-25 m-3" type="button" onClick={
-          () => {
-            document.getElementById('trans-success').style.display = "none";
-          }
-        }>
+        <button
+          className="btn btn-outline-danger w-25 m-3"
+          type="button"
+          onClick={() => {
+            document.getElementById("trans-success").style.display = "none";
+          }}
+        >
           Cancel
         </button>
-        <button className="btn btn-outline-success w-25 m-3" type="button" onClick={
-          () => {
-            document.getElementById('trans-success').style.display = "none";
-            navigate('/order')
-          }
-        }>
+        <button
+          className="btn btn-outline-success w-25 m-3"
+          type="button"
+          onClick={() => {
+            document.getElementById("trans-success").style.display = "none";
+            navigate("/order");
+          }}
+        >
           View transaction details.
         </button>
       </div>

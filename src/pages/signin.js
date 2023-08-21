@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
-import jwt_decode from "jwt-decode";
 
 function Singin() {
   const navigate = useNavigate();
@@ -42,28 +41,6 @@ function Singin() {
       });
     });
   };
-
-  // Sign in with google code section
-  function handleCallbackResponse(response) {
-    console.log("Encoded JWT ID token:" + response.credential);
-    console.log(jwt_decode(response.credential));
-    navigate("/account");
-  }
-
- 
-  // useEffect(() => {
-  //    /* global google */
-  //   google.accounts.id.initialize({
-  //     client_id:
-  //       "694164949025-0cg186cuth8u96jtrel3u6tlj32594jk.apps.googleusercontent.com",
-  //     callback: handleCallbackResponse,
-  //   });
-
-  //   google.accounts.id.renderButton(document.getElementById("googleSign"), {
-  //     theme: "outline",
-  //     size: "large",
-  //   });
-  // }, []);
 
   return (
     <>
@@ -124,35 +101,6 @@ function Singin() {
             <span>or</span>
           </div>
           <div id="googleSign"></div>
-          <div
-            className="fb-login-button"
-            data-width="350px"
-            data-size="large"
-            data-button-type="continue_with"
-            data-layout="rounded"
-            data-auto-logout-link="false"
-            data-use-continue-as="true"
-            style={{ marginTop: "30px" }}
-            onLogin={() => {
-              //alert("hi there...");
-              /* global FB */
-              // FB.login(function(response) {
-              //   if (response.authResponse) {
-              //     FB.api("/me", function(response) {
-              //       localStorage.setItem("fb_id", response.id);
-              //       localStorage.setItem("fb_name", response.name);
-              //       navigate(-1);
-              //     });
-                  
-              //     //window.location.replace("https://localhost:3000/");
-              //   } else {
-              //     console.log(
-              //       "User cancelled login or did not fully authorize."
-              //     );
-              //   }
-              // });
-            }}
-          ></div>
         </div>
       </div>
     </>

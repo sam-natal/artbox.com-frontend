@@ -25,15 +25,6 @@
   <body>
     <div id="root"></div>
 
-    <div id="fb-root"></div>
-    <script
-      async
-      defer
-      crossorigin="anonymous"
-      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0&appId=469422288683872&autoLogAppEvents=1"
-      nonce="Pc6HRVQ6"
-    ></script>
-
     <!-- START OF THE PAYPAL PAYMENT INTERGRATION SCRIPT................................................ -->
 
     <script src="https://www.paypal.com/sdk/js?client-id=AbrRzci1RG9gEfUr7N0dw8FL_fFp4_NKBCM0xO3vhNCaRah0Hk-kGMVAdWki7sSF84PH7FCsXOiYR95m&currency=USD"></script>
@@ -78,51 +69,6 @@
     </script>
 
     <!-- END OF THE PAYPAL PAYMENT INTERGRATION SCRIPT................................................ -->
-
-    <!-- AUTHENTICATION PROCESS OF LOGIN WITH FACEBOOK -->
-
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId: "469422288683872", // 469422288683872
-          cookie: true,
-          xfbml: true,
-          version: "v15.0",
-        });
-
-
-      //   FB.login(function(response) {
-      //   if (response.authResponse) {
-      //     FB.api("/me", function(response) {
-      //       localStorage.setItem("fb_id",response.id )
-      //       localStorage.setItem("fb_name",response.name )
-      //       navigate(-1);
-      //     });
-      //     //window.location.replace("https://localhost:3000/");
-      //   } else {
-      //     console.log("User cancelled login or did not fully authorize.");
-      //   }
-      // });
-
-        FB.AppEvents.logPageView();
-
-        FB.getLoginStatus(function(response) {
-          statusChangeCallback(response);
-        }); 
-      };
-
-      (function(d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {
-          return;
-        }
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      })(document, "script", "facebook-jssdk");
-    </script>
 
     <script src="../src/index.js" type="text/babel"></script>
     <script

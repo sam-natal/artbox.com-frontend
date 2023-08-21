@@ -29,8 +29,6 @@ function ViewProduct() {
     return item.artistID;
   });
 
-  console.log(viewArt);
-
   //A function to store art ID on the local storage
   function storeArtistId() {
     localStorage.setItem("artist_id", artist_id);
