@@ -196,7 +196,7 @@ function Navbar(props) {
                   <li>
                     Email:
                     <label style={{ float: "right", fontWeight: "bold" }}>
-                      help@artbox.com
+                      customer@artisangalleryhub.com
                     </label>
                   </li>
                   <li style={{ textAlign: "center", margin: "9px 0" }}>
