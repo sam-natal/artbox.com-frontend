@@ -314,6 +314,11 @@ a {
   height: 33px;
 }
 
+.email-sub-p{
+  color: #858585;
+  font-size: medium;
+}
+
 @media only screen and (min-width: 576px) {
   .para-dv,
   .email-dv {
@@ -361,7 +366,9 @@ footer a:hover {
 
 .copyright-p {
   text-align: center;
-  color: #707071;
+  color: #909090;
+  margin-bottom: 0;
+  font-size:small;
 }
 
 @media only screen and (min-width: 700px) {

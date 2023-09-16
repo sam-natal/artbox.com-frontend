@@ -179,7 +179,7 @@ function Navbar(props) {
                 </div>
                 <ul
                   className="dropdown-menu contact-list"
-                  style={{ padding: "9px", width: "250px" }}
+                  style={{ padding: "9px", width: "320px" }}
                 >
                   <li>
                     Call:

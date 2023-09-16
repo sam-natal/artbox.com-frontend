@@ -4,7 +4,7 @@ function EmailSubscribe() {
   return (
     <div className="sect6-dv">
       <div className="para-dv">
-        <p>
+        <p className="email-sub-p">
           Subscribe to our mailing list to let you know what might be important
           from us.
         </p>
@@ -54,25 +54,25 @@ function Footer() {
             <h5>Connect with us</h5>
             <li>
               <a href="https://www.facebook.com">
-                <i className="bi bi-facebook" style={{ color: "blue" }}></i>
+                <i className="bi bi-facebook" style={{ color: "blue",fontSize: "0.8rem" }}></i>
                 Facebook
               </a>
             </li>
             <li>
               <a href="https://www.instagram.com">
-                <i className="bi bi-instagram" style={{ color: "#f35e00" }}></i>
+                <i className="bi bi-instagram" style={{ color: "#f35e00",fontSize: "0.8rem" }}></i>
                 Instagram
               </a>
             </li>
             <li>
               <a href="https://www.twitter.com">
-                <i className="bi bi-twitter" style={{ color: "black" }}></i>
+                <i className="bi bi-twitter" style={{ color: "black",fontSize: "0.8rem" }}></i>
                 Twitter
               </a>
             </li>
             <li>
               <a href="https://www.pinterest.com">
-                <i className="bi bi-pinterest" style={{ color: "#b7081b" }}></i>
+                <i className="bi bi-pinterest" style={{ color: "#b7081b",fontSize: "0.8rem" }}></i>
                 Pinterest
               </a>
             </li>
@@ -100,21 +100,20 @@ function Footer() {
       <hr />
 
       <p className="copyright-p">
-        &copy; Copyright {new Date().getFullYear()} artbox.com ,All rights
-        reserved.
+        &copy; Copyright {new Date().getFullYear()} artisangalleryhub.com
       </p>
       <div className="social-medias-s">
         <a href="https://www.facebook.com">
-          <i className="bi bi-facebook" style={{ color: "blue" }}></i>
+          <i className="bi bi-facebook" style={{ color: "blue",fontSize: "0.8rem" }}></i>
         </a>
         <a href="https://www.instagram.com">
-          <i className="bi bi-instagram" style={{ color: "#f35e00" }}></i>
+          <i className="bi bi-instagram" style={{ color: "#f35e00",fontSize: "0.8rem" }}></i>
         </a>
         <a href="https://www.twitter.com">
-          <i className="bi bi-twitter" style={{ color: "black" }}></i>
+          <i className="bi bi-twitter" style={{ color: "black" ,fontSize: "0.8rem"}}></i>
         </a>
         <a href="https://www.pinterest.com">
-          <i className="bi bi-pinterest" style={{ color: "#b7081b" }}></i>
+          <i className="bi bi-pinterest" style={{ color: "#b7081b",fontSize: "0.8rem" }}></i>
         </a>
       </div>
     </footer>
