@@ -45,7 +45,7 @@ function ViewProduct() {
         <div className="col col-lg-8 left-dv">
           <div className="img-prod-dv">
             <img
-              src={"http://127.0.0.1:8000/storage/" + item.image_path.slice(7)}
+              src={"https://admin.artisangalleryhub.com/storage/" + item.image_path.slice(7)}
               alt=""
             />
           </div>
@@ -105,7 +105,7 @@ function ViewProduct() {
                   artID: item.id,
                   height: item.height,
                   img:
-                    "http://127.0.0.1:8000/storage/" + item.image_path.slice(7),
+                    "https://admin.artisangalleryhub.com/" + item.image_path.slice(7),
                   price: item.price,
                   qty: 1,
                   title: item.title,
@@ -186,7 +186,7 @@ function ViewProduct() {
         <Card
           key={item.id}
           artID={item.id}
-          img={"http://127.0.0.1:8000/storage/" + item.image_path.slice(7)}
+          img={"https://admin.artisangalleryhub.com/storage/" + item.image_path.slice(7)}
           title={item.title}
           width={item.width}
           height={item.height}

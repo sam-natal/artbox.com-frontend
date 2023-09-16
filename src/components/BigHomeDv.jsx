@@ -39,7 +39,7 @@ function BigHomeDv() {
         <div className="col col-lg-6 col-sm-12">
           <div style={{ height: "300px", margin: "1% 0" }}>
             <img
-              className="a"
+              className="curated-img"
               src={require("../resources/a-girl.jpg")}
               style={{ width: "60%", height: "300px", marginBottom:"60px" }}
               alt=''
@@ -58,7 +58,7 @@ function BigHomeDv() {
                 Want to have your own specific art, format, frame, finishing
                 touches etc ?
               </p>
-              <a href=" https://wa.me/0752526228">
+              <a href=" https://wa.me/0767952016">
               <button
                 className="btn btn-outline-dark"
                 style={{ fontWeight: "bold" }}

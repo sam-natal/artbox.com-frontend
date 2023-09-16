@@ -5,12 +5,6 @@ import swal from "sweetalert";
 function CartItem(props) {
   var uID = localStorage.getItem("user_id");
 
-  // const [cart, setCart] = useState(
-  //   uID
-  //     ? JSON.parse(localStorage.getItem("cart" + uID) || [])
-  //     : JSON.parse(localStorage.getItem("guest_cart") || [])
-  // );
-
   const cart = uID
     ? JSON.parse(localStorage.getItem("cart" + uID) || [])
     : JSON.parse(localStorage.getItem("guest_cart") || []);

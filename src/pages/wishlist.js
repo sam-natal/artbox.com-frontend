@@ -26,7 +26,7 @@ function Wish() {
       >
         <Card
           artID={item.id}
-          img={"http://127.0.0.1:8000/storage/" + item.image_path.slice(7)}
+          img={"https://admin.artisangalleryhub.com/storage/" + item.image_path.slice(7)}
           title={item.title}
           width={item.width}
           height={item.height}

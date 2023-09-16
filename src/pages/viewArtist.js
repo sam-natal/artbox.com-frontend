@@ -28,7 +28,7 @@ function ViewProduct() {
         <div className="artist-container">
           <img
             src={
-              "http://127.0.0.1:8000/storage/" + item.profile_picture.slice(7)
+              "https://admin.artisangalleryhub.com/storage/" + item.profile_picture.slice(7)
             }
             className="card-img-top rounded-circle "
             alt="..."
@@ -73,7 +73,7 @@ function ViewProduct() {
         <Card
           key={item.id}
           artID={item.id}
-          img={"http://127.0.0.1:8000/storage/" + item.image_path.slice(7)}
+          img={"https://admin.artisangalleryhub.com/storage/" + item.image_path.slice(7)}
           title={item.title}
           width={item.width}
           height={item.height}

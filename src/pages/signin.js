@@ -89,19 +89,19 @@ function Singin() {
             </div>
 
             <div className="col-12">
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary w-100">
                 Sign in
               </button>
             </div>
           </form>
         </div>
 
-        <div className="col-lg-12 signin-bottom-col">
+        {/* <div className="col-lg-12 signin-bottom-col">
           <div className="signin-or-dv">
             <span>or</span>
           </div>
           <div id="googleSign"></div>
-        </div>
+        </div> */}
       </div>
     </>
   );

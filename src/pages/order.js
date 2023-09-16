@@ -13,14 +13,6 @@ export const Order = () => {
   useEffect(()=>{
     if (location === "cart") {
       ordered_item = JSON.parse(localStorage.getItem("cart" + uID));
-      //A function to map through all th cart items and capture all the price into new price array
-      // const prices = ordered_item.map((art) => {
-      //   return art.ttlPrice;
-      // });
-  
-      // subttl = prices.reduce((accumulator, price) => {
-      //   return accumulator + price;
-      // });
   
       const data = {
         customerID: uID,

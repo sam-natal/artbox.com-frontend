@@ -46,7 +46,7 @@ function TopArtCarousel() {
             <Card
               artID={viewArt[0].id}
               img={
-                "http://127.0.0.1:8000/storage/" +
+                "https://admin.artisangalleryhub.com/storage/" +
                 viewArt[0].image_path.slice(7)
               }
               title={viewArt[0].title}
@@ -60,7 +60,7 @@ function TopArtCarousel() {
             <Card
               artID={viewArt[1].id}
               img={
-                "http://127.0.0.1:8000/storage/" +
+                "https://admin.artisangalleryhub.com/storage/" +
                 viewArt[1].image_path.slice(7)
               }
               title={viewArt[1].title}
@@ -74,7 +74,7 @@ function TopArtCarousel() {
             <Card
               artID={viewArt[2].id}
               img={
-                "http://127.0.0.1:8000/storage/" +
+                "https://admin.artisangalleryhub.com/storage/" +
                 viewArt[2].image_path.slice(7)
               }
               title={viewArt[2].title}
@@ -88,7 +88,7 @@ function TopArtCarousel() {
             <Card
               artID={viewArt[3].id}
               img={
-                "http://127.0.0.1:8000/storage/" +
+                "https://admin.artisangalleryhub.com/storage/" +
                 viewArt[3].image_path.slice(7)
               }
               title={viewArt[3].title}
@@ -108,7 +108,7 @@ function TopArtCarousel() {
             <Card
               artID={viewArt[4].id}
               img={
-                "http://127.0.0.1:8000/storage/" +
+                "https://admin.artisangalleryhub.com/storage/" +
                 viewArt[4].image_path.slice(7)
               }
               title={viewArt[4].title}
@@ -123,7 +123,7 @@ function TopArtCarousel() {
             <Card
               artID={viewArt[5].id}
               img={
-                "http://127.0.0.1:8000/storage/" +
+                "https://admin.artisangalleryhub.com/storage/" +
                 viewArt[5].image_path.slice(7)
               }
               title={viewArt[5].title}
@@ -137,7 +137,7 @@ function TopArtCarousel() {
             <Card
               artID={viewArt[6].id}
               img={
-                "http://127.0.0.1:8000/storage/" +
+                "https://admin.artisangalleryhub.com/storage/" +
                 viewArt[6].image_path.slice(7)
               }
               title={viewArt[6].title}
@@ -151,7 +151,7 @@ function TopArtCarousel() {
             <Card
               artID={viewArt[7].id}
               img={
-                "http://127.0.0.1:8000/storage/" +
+                "https://admin.artisangalleryhub.com/storage/" +
                 viewArt[7].image_path.slice(7)
               }
               title={viewArt[7].title}

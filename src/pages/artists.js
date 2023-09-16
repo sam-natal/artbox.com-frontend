@@ -24,7 +24,7 @@ function Artists() {
       >
         <Card
           artistID={item.id}
-          img={"http://127.0.0.1:8000/storage/" + item.profile_picture.slice(7)}
+          img={"https://admin.artisangalleryhub.com/storage/" + item.profile_picture.slice(7)}
           title={item.first_name+" "+item.last_name}
         />
       </div>

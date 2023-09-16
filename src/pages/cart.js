@@ -10,15 +10,6 @@ function Cart() {
     JSON.parse(localStorage.getItem(uID ? "cart" + uID : "guest_cart") || "[]")
   );
 
-  // const [cart, setCart] = useState(
-  //   JSON.parse(localStorage.getItem(uID ? "cart" + uID : "guest_cart") || "[]")
-  // );
-
-  // const arr = {...JSON.parse(localStorage.getItem( "cart" + uID)),...JSON.parse(localStorage.getItem( "guest_cart"))};
-
-  // console.log(arr);
-
-  // uID ? setCart(...cart,JSON.parse(localStorage.getItem("guest_cart") || "[]")) : '';
   if (uID) {
     localStorage.removeItem("guest_cart")
   }

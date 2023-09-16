@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-//import CreditCardForm from "../components/CreditCardForm";
 import AddressForm from "../components/AddressForm";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
@@ -50,7 +49,7 @@ function Checkout() {
     show_items = (
       <p>
         <img
-          src={"http://127.0.0.1:8000/storage/" + prd.image_path.slice(7)}
+          src={"https://admin.artisangalleryhub.com/storage/" + prd.image_path.slice(7)}
           alt=""
           style={{
             width: "40px",
@@ -103,21 +102,7 @@ function Checkout() {
             />
 
             <h5>2.Payment method</h5>
-            {/* <div className="select-pay-dv" onClick={RemoveCreditForm}>
-              <input type="radio" name="radio" id="paypal-radio" />
-              <label>Use paypal</label>
-              <img
-                src={require("../resources/paypal-method-removebg-preview.png")}
-              />
-            </div>
-
-            <div className="select-pay-dv" onClick={DisplayCreditForm}>
-              <input type="radio" name="radio" id="credit-radio" />
-              <label>Add a credit or debit card</label>
-              <img src={require("../resources/visa-removebg-preview.png")} />
-            </div>
-
-            <CreditCardForm /> */}
+        
             <div id="paypal-button-container"></div>
           </div>
 
@@ -208,15 +193,5 @@ function RemoveAddressForm() {
   document.getElementById("maximize-dv").style.display = "block";
   document.getElementById("minimize-dv").style.display = "none";
 }
-
-// function DisplayCreditForm() {
-//   document.getElementById("credit-card-form").style.display = "flex";
-//   document.getElementById("credit-radio").checked = true;
-// }
-
-// function RemoveCreditForm() {
-//   document.getElementById("credit-card-form").style.display = "none";
-//   document.getElementById("paypal-radio").checked = true;
-// }
 
 export default Checkout;

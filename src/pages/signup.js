@@ -150,19 +150,19 @@ function Singup() {
               </div>
             </div>
             <div className="col-12">
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary w-100">
                 Sign up
               </button>
             </div>
           </form>
         </div>
 
-        <div className="col col-lg-6 col-md-12 signup-right-col">
+        {/* <div className="col col-lg-6 col-md-12 signup-right-col">
           <div className="or-dv">
             <span>or</span>
           </div>
           <div id="googleSign"></div>
-        </div>
+        </div> */}
       </div>
     </>
   );
